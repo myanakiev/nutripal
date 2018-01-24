@@ -30,7 +30,13 @@ update.php
 xmlrpc.php
 /includes
 /misc
-/modules
 /profiles
 /scripts
-/themes
+
+# Ignore everything but the "custom" subfolder of "modules" and "themes"
+!/modules/
+/modules/*
+!/modules/custom/
+!/themes/
+/themes/*
+!/themes/custom/

@@ -1,0 +1,27 @@
+uuid: cd9ab145-558d-4dad-908f-d5d11451f6e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.aliment.body
+    - node.type.aliment
+  module:
+    - text
+    - user
+id: node.aliment.default
+targetEntityType: node
+bundle: aliment
+mode: default
+content:
+  body:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

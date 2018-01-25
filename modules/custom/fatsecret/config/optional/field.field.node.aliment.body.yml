@@ -1,0 +1,22 @@
+uuid: b0f023da-6f8e-446f-bf40-656f255c69b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.aliment
+  module:
+    - text
+id: node.aliment.body
+field_name: body
+entity_type: node
+bundle: aliment
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

@@ -1,0 +1,4 @@
+administer nutripal configuration:
+  title: 'Administer nutripal configuration'
+  description: 'Optional description.'
+  restrict access: true

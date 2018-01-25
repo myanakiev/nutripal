@@ -1,0 +1,5 @@
+name: NutriPal
+type: module
+description: NutriPal Project
+package: Custom
+core: 8.x

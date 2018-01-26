@@ -7,7 +7,7 @@ namespace Drupal\fatsecret\Form;
 	use Drupal\Core\Ajax\CssCommand;
 	use Drupal\Core\Ajax\HtmlCommand;
 	use Drupal\node\Entity\Node;
-	include 'modules/custom/fatsecret/fatsecretclass.php';
+	use Drupal\fatsecret\Fatsecret;
 
 class FatsecretSearchForm extends FormBase{
 
@@ -101,7 +101,6 @@ class FatsecretSearchForm extends FormBase{
 		// On récupère la consumer key et le secret de l'api que l'on a configuré et on instancie la classe Fatsecret
 		$key = \Drupal::config('fatsecret.config')->get('consumerkey');
 		$secret = \Drupal::config('fatsecret.config')->get('sharedsecret');
-		$fatsecret = new \Drupal\fatsecret\Fatsecret();
 
 		// Submit du bouton de recherche
 		if($form_state->getValue('search')!= NULL){
@@ -109,7 +108,7 @@ class FatsecretSearchForm extends FormBase{
 			$expression = $form_state->getValue('expression');
 			// On choisi quelle page de résultat on veut afficher (la première étant 0)
 			$page = 0;
-			$result = $fatsecret->search($expression, $key, $secret, $page);
+			$result = Fatsecret::search($expression, $key, $secret, $page);
 			$result = json_decode($result,TRUE);
 			$total_results = $result['foods']['total_results'];
 			
@@ -130,7 +129,7 @@ class FatsecretSearchForm extends FormBase{
 			// Pour chaque options selectionnés on récupère les données nutritive en definissant chaque champs 
 			foreach ($ids as $id){
 				if($id != 0){
-					$data = json_decode($fatsecret->getFood($id, $key, $secret));
+					$data = json_decode(Fatsecret::getFood($id, $key, $secret));
 					$title =$data->food->food_name;
 					// On récupère les données seulement pour la portion "100g"
 					foreach ($data->food->servings->serving as $serving) {

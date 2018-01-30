@@ -1,0 +1,23 @@
+uuid: 8369f36b-eae1-4e64-ab9b-ae092990d30c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_sports_level
+  module:
+    - options
+    - user
+id: user.user.field_sports_level
+field_name: field_sports_level
+entity_type: user
+bundle: user
+label: 'Sports level'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

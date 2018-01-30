@@ -37,7 +37,7 @@ class NutriPalSubscriber implements EventSubscriberInterface {
    *   Response event.
    */
   public function onKernelRequest(GetResponseEvent $event) {
-    drupal_set_message(__FUNCTION__);
+    //drupal_set_message(__FUNCTION__);
   }
 
   /**
@@ -47,7 +47,7 @@ class NutriPalSubscriber implements EventSubscriberInterface {
    *   Response event.
    */
   public function onKernelResponse(FilterResponseEvent $event) {
-    drupal_set_message(__FUNCTION__);
+    //drupal_set_message(__FUNCTION__);
   }
 
   /**

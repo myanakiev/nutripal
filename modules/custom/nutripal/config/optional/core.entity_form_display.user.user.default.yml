@@ -13,6 +13,7 @@ dependencies:
     - image.style.thumbnail
   module:
     - image
+    - path
     - user
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
@@ -69,6 +70,12 @@ content:
     third_party_settings: {  }
     type: number
     region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image_image
     settings:
@@ -79,5 +86,6 @@ content:
     region: content
 hidden:
   contact: true
+  langcode: true
   language: true
   timezone: true

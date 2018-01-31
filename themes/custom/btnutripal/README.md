@@ -22,31 +22,31 @@ preprocessor.
 Download and extract the **latest** 3.x.x version of
 [Bootstrap Framework Source Files] into the root of your new sub-theme. After
 it has been extracted, the directory should be renamed (if needed) so it reads
-`./nutripal/bootstrap`.
+`./btnutripal/bootstrap`.
 
 If for whatever reason you have an additional `bootstrap` directory wrapping the
-first `bootstrap` directory (e.g. `./nutripal/bootstrap/bootstrap`), remove the
+first `bootstrap` directory (e.g. `./btnutripal/bootstrap/bootstrap`), remove the
 wrapping `bootstrap` directory. You will only ever need to touch these files if
 or when you upgrade your version of the [Bootstrap Framework].
 
 {.alert.alert-warning} **WARNING:** Do not modify the files inside of
-`./nutripal/bootstrap` directly. Doing so may cause issues when upgrading the
+`./btnutripal/bootstrap` directly. Doing so may cause issues when upgrading the
 [Bootstrap Framework] in the future.
 
 ## Overrides {#overrides}
-The `./nutripal/scss/_default-variables.scss` file is generally where you will
+The `./btnutripal/scss/_default-variables.scss` file is generally where you will
 spend the majority of your time providing any default variables that should be
 used by the [Bootstrap Framework] instead of its own.
 
-The `./nutripal/scss/overrides.scss` file contains various Drupal overrides to
+The `./btnutripal/scss/overrides.scss` file contains various Drupal overrides to
 properly integrate with the [Bootstrap Framework]. It may contain a few
 enhancements, feel free to edit this file as you see fit.
 
-The `./nutripal/scss/style.scss` file is the glue that combines:
+The `./btnutripal/scss/style.scss` file is the glue that combines:
 `_default-variables.scss`, [Bootstrap Framework Source Files] and the 
 `overrides.scss` file together. Generally, you will not need to modify this
 file unless you need to add or remove files to be imported. This is the file
-that you should compile to `./nutripal/css/style.css` (note the same file
+that you should compile to `./btnutripal/css/style.css` (note the same file
 name, using a different extension of course).
 
 #### See also:

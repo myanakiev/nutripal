@@ -1,17 +1,13 @@
 /*
-Error: File to import not found or unreadable: bootstrap-mincer.
-       Load path: C:/Users/stage/Desktop/bootstrap-8.x-3.9/bootstrap/starterkits/nutripal/bootstrap/test/dummy_node_mincer
-        on line 1 of C:\Users\stage\Desktop\bootstrap-8.x-3.9\bootstrap\starterkits\nutripal\bootstrap\test\dummy_node_mincer\application.css.ejs.scss
+Error: File to import not found or unreadable: bootstrap-sprockets.
+       Load path: C:/Users/stage/Desktop/bootstrap-8.x-3.9/bootstrap/starterkits/btnutripal/bootstrap/test/dummy_rails/app/assets/stylesheets
+        on line 1 of C:\Users\stage\Desktop\bootstrap-8.x-3.9\bootstrap\starterkits\btnutripal\bootstrap\test\dummy_rails\app\assets\stylesheets\application.sass
 
-1: @import "bootstrap-mincer";
-2: @import "bootstrap";
-3: 
-4: #image-retina {
-5:   @include img-retina("apple-touch-icon-144-precomposed.png", "apple-touch-icon-144-precomposed.png", 72px, 72px);
-6: }
+1: @import 'bootstrap-sprockets'
+2: @import 'bootstrap'
 
 Backtrace:
-C:\Users\stage\Desktop\bootstrap-8.x-3.9\bootstrap\starterkits\nutripal\bootstrap\test\dummy_node_mincer\application.css.ejs.scss:1
+C:\Users\stage\Desktop\bootstrap-8.x-3.9\bootstrap\starterkits\btnutripal\bootstrap\test\dummy_rails\app\assets\stylesheets\application.sass:1
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/import_node.rb:67:in `rescue in import'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/import_node.rb:45:in `import'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -49,4 +45,4 @@ C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: bootstrap-mincer.\A        Load path: C:/Users/stage/Desktop/bootstrap-8.x-3.9/bootstrap/starterkits/nutripal/bootstrap/test/dummy_node_mincer\A         on line 1 of C:\Users\stage\Desktop\bootstrap-8.x-3.9\bootstrap\starterkits\nutripal\bootstrap\test\dummy_node_mincer\application.css.ejs.scss\A \A 1: @import \"bootstrap-mincer\";\A 2: @import \"bootstrap\";\A 3: \A 4: #image-retina {\A 5:   @include img-retina(\"apple-touch-icon-144-precomposed.png\", \"apple-touch-icon-144-precomposed.png\", 72px, 72px);\A 6: }"; }
+  content: "Error: File to import not found or unreadable: bootstrap-sprockets.\A        Load path: C:/Users/stage/Desktop/bootstrap-8.x-3.9/bootstrap/starterkits/btnutripal/bootstrap/test/dummy_rails/app/assets/stylesheets\A         on line 1 of C:\Users\stage\Desktop\bootstrap-8.x-3.9\bootstrap\starterkits\btnutripal\bootstrap\test\dummy_rails\app\assets\stylesheets\application.sass\A \A 1: @import 'bootstrap-sprockets'\A 2: @import 'bootstrap'"; }

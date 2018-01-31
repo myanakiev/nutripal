@@ -10,7 +10,7 @@ third_party_settings:
       - main
     parent: 'main:'
 _core:
-  default_config_hash: nTVZ3z_Z3g7peBiOPyL-qx5E2CmbxGeDOx9GWQUA9pA
+  default_config_hash: '-sdoD2XNVZFmQAyClzQ8PQfUp34VFKSR--KW2PS2HiI'
 name: Aliments
 type: aliments
 description: 'Content type for all aliments'

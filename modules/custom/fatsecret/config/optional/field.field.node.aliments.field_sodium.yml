@@ -1,0 +1,23 @@
+uuid: 15d5eab8-e910-41a6-bd9a-8adc61e7b6e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sodium
+    - node.type.aliments
+id: node.aliments.field_sodium
+field_name: field_sodium
+entity_type: node
+bundle: aliments
+label: 'Sodium (mg)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

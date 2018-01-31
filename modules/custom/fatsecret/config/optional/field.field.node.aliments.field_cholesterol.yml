@@ -1,0 +1,23 @@
+uuid: 33fdfcce-117b-43d2-9623-6f4b9aa53bb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cholesterol
+    - node.type.aliments
+id: node.aliments.field_cholesterol
+field_name: field_cholesterol
+entity_type: node
+bundle: aliments
+label: 'Cholesterol (mg)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

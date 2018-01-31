@@ -1,0 +1,23 @@
+uuid: 6a97b414-c30a-449b-9b5c-90d49ec6bd0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_potassium
+    - node.type.aliments
+id: node.aliments.field_potassium
+field_name: field_potassium
+entity_type: node
+bundle: aliments
+label: 'Potassium (mg)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

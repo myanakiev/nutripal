@@ -1,0 +1,23 @@
+uuid: f4aac261-e739-4c59-add4-7133663557e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_protein
+    - node.type.aliments
+id: node.aliments.field_protein
+field_name: field_protein
+entity_type: node
+bundle: aliments
+label: 'Protein (g)'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

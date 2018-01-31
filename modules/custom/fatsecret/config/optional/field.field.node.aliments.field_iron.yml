@@ -1,0 +1,23 @@
+uuid: c5202daf-6046-46b5-99dd-5c03a6a24e2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_iron
+    - node.type.aliments
+id: node.aliments.field_iron
+field_name: field_iron
+entity_type: node
+bundle: aliments
+label: 'Iron (%)'
+description: 'Percent Daily Values are based on a 2000 calorie diet.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

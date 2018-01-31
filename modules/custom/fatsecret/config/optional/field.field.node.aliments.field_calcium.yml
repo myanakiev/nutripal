@@ -1,0 +1,23 @@
+uuid: a959a7fc-46d6-45a4-844e-a5368e367aaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_calcium
+    - node.type.aliments
+id: node.aliments.field_calcium
+field_name: field_calcium
+entity_type: node
+bundle: aliments
+label: 'Calcium (%)'
+description: 'Percent Daily Values are based on a 2000 calorie diet.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

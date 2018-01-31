@@ -14,7 +14,6 @@ class FatsecretSearchForm extends FormBase{
 	/**
 	* {@inheritdoc}.
 	*/
-
 	public function getFormId(){
 		return 'fatsecret_search';
 	}
@@ -31,8 +30,6 @@ class FatsecretSearchForm extends FormBase{
 			'#required' => TRUE,
 		];
 
-		
-
 		$form['search'] = [
 			'#type' => 'submit',
 			'#value' => $this->t('Search'),
@@ -41,8 +38,6 @@ class FatsecretSearchForm extends FormBase{
 				'callback'=> [$this,'SearchResultAjax'],
 			]
 		];
-
-		
 
 		// Condition for the display of the select element
 		if(isset($form_state->getRebuildInfo()['result'])){
@@ -56,14 +51,14 @@ class FatsecretSearchForm extends FormBase{
 
 			$database = \Drupal::database();
 			$query = $database->select('node', 'n');
-		    $query->leftJoin('node_field_data', 't', 't.nid = n.nid');
-		    $query->fields('t', array('title'));
-		    $query->condition('n.type', 'aliment', '=');
-		    $query_result = $query->execute()->fetchAll();
+			$query->leftJoin('node_field_data', 't', 't.nid = n.nid');
+			$query->fields('t', array('title'));
+			$query->condition('n.type', 'aliment', '=');
+			$query_result = $query->execute()->fetchAll();
 
-		    foreach ($query_result as $aliment) {
-		      $node_titles[] = $aliment->title;
-		    }
+			foreach ($query_result as $aliment) {
+				$node_titles[] = $aliment->title;
+			}
 
 			// Displaying the results only for generic aliments
 			foreach ($result as $ingredient) {
@@ -111,10 +106,10 @@ class FatsecretSearchForm extends FormBase{
 		$res->addCommand(new HtmlCommand('#block-seven-content', $form));
 
 		if(!isset($form_state->getRebuildInfo()['result'])){
-        	$res-> addCommand(new CssCommand('.text-message',$css));
+			$res-> addCommand(new CssCommand('.text-message',$css));
 			$res-> addCommand(new HtmlCommand('.text-message',$message));
 		}
-        return $res;
+		return $res;
 	}
 
 	// Search submit
@@ -143,55 +138,94 @@ class FatsecretSearchForm extends FormBase{
 		$secret = \Drupal::config('fatsecret.config')->get('sharedsecret');
 
 		$ids = $form_state->getValue('select_ingredients');
+
 		$data = [];
 		// For each option checked we get the nutritional infos and define fields for the node
 		foreach ($ids as $id){
 			if($id != 0){
 				$data = json_decode(Fatsecret::getFood($id, $key, $secret));
 				$title =$data->food->food_name;
-				// We get the data for "100g" serving
-				foreach ($data->food->servings->serving as $serving) {
-					if($serving->serving_description == '100 g'){
-						$calories = $serving->calories;
-						$calcium = $serving->calcium;
-						$carbohydrate = $serving->carbohydrate;
-						$cholesterol = $serving->cholesterol;
-						$fat = $serving->fat;
-						$fiber = $serving->fiber;
-						$iron = $serving->iron;
-						$monounsaturated_fat = $serving->monounsaturated_fat;
-						$polyunsaturated_fat = $serving->polyunsaturated_fat;
-						$potassium = $serving->potassium;
-						$protein = $serving->protein;
-						$saturated_fat = $serving->saturated_fat;
-						$sodium = $serving->sodium;
-						$sugar = $serving->sugar;
-						//$vitamin_a = $serving->vitamin_a;
-						//$vitamin_b = $serving->vitamin_b;
-						//$vitamin_c = $serving->vitamin_c;
-						//$vitamin_d = $serving->vitamin_d;
-					}
-				}
+				$userid = \Drupal::currentUser()->id();
 
-				$id = \Drupal::currentUser()->id();
 				// Dev Contition to delate later
 				if(1==1){
-				
-				// Creation of the node with the right fields and display of a confirmation message
-				$node = Node::create(['type' => 'aliment']);
-				$node->set('title', $title);
-				$body = [
-					'value' => 'Now that we know who you are, I know who I am. I\'m not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain\'s going to be? He\'s the exact opposite of the hero. And most times they\'re friends, like you and me! I should\'ve known way back when... You know why, David? Because of the kids. They called me Mr Glass.', 
-						'format' => 'basic_html',
-				];
-				$node->set('body', $body);
-				$node->set('uid', $id);
-				$node->status = 1;
-				$node->setPromoted(FALSE) ;
-				$node->enforceIsNew();
-				$node->save();
-				drupal_set_message( "Node " . $node->getTitle() . " saved!\n");
+					// Creation of the node with the right fields and display of a confirmation message
+					$node = Node::create(['type' => 'aliment']);
+					$node->set('title', $title);
+					$body = [
+						'value' => 'Now that we know who you are, I know who I am. I\'m not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain\'s going to be? He\'s the exact opposite of the hero. And most times they\'re friends, like you and me! I should\'ve known way back when... You know why, David? Because of the kids. They called me Mr Glass.', 
+							'format' => 'basic_html',
+					];
+					$node->set('body', $body);
+					$node->set('uid', $userid);
+
+					// We get the data for "100g" serving
+					foreach ($data->food->servings->serving as $serving) {
+						if($serving->serving_description == '100 g'){
+
+							if(isset($serving->calories)){
+								$node->set('calories', $calories);
+							}
+							if(isset($serving->calcium)){
+								$node->set('calcium', $calcium);
+							}
+							if(isset($serving->carbohydrate)){
+								$node->set('carbohydrate', $carbohydrate);
+							}
+							if(isset($serving->cholesterol)){
+								$node->set('cholesterol', $cholesterol);
+							}
+							if(isset($serving->fat)){
+								$node->set('fat', $fat);
+							}
+							if(isset($serving->fiber)){
+								$node->set('fiber', $fiber);
+							}
+							if(isset($serving->iron)){
+								$node->set('iron', $iron);
+							}
+							if(isset($serving->monounsaturated_fat)){
+								$node->set('monounsaturated_fat', $monounsaturated_fat);
+							}
+							if(isset($serving->polyunsaturated_fat)){
+								$node->set('polyunsaturated_fat', $polyunsaturated_fat);
+							}
+							if(isset($serving->potassium)){
+								$node->set('potassium', $potassium);
+							}
+							if(isset($serving->protein)){
+								$node->set('protein', $protein);
+							}
+							if(isset($serving->saturated_fat)){
+								$node->set('saturated_fat', $saturated_fat);
+							}
+							if(isset($serving->sodium)){
+								$node->set('sodium', $sodium);
+							}
+							if(isset($serving->sugar)){
+								$node->set('sugar', $sugar);
+							}
+							if(isset($serving->vitamin_a)){
+								$node->set('vitamin_a', $vitamin_a);
+							}
+							if(isset($serving->vitamin_b)){
+								$node->set('vitamin_b', $vitamin_b);
+							}
+							if(isset($serving->vitamin_c)){
+								$node->set('vitamin_c', $vitamin_c);
+							}
+							if(isset($serving->vitamin_d)){
+								$node->set('vitamin_d', $vitamin_d);
+							}
+						}
+					}
+					$node->status = 1;
+					$node->setPromoted(FALSE) ;
+					$node->enforceIsNew();
+					$node->save();
+					drupal_set_message( "Node " . $node->getTitle() . " saved!\n");
 				}
+				
 			}
 		}
 		// Reset of all fields at the end of the creation loop (doesn't work)

@@ -28,7 +28,8 @@
         "drupal/token": "^1.1",
         "drupal/video_embed_field": "^1.5",
         "drupal/webprofiler": "^2.0@RC",
-        "drupal/bootstrap": "^3.9"
+        "drupal/bootstrap": "^3.9",
+        "drupal/breakpoints_ui": "^1.0"
     },
     "replace": {
         "drupal/core": "^8.4"

@@ -1,4 +1,5 @@
 # Ignore default and core files.
+config/
 core/
 sites/
 vendor/

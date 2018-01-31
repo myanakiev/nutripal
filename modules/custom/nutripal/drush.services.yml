@@ -1,0 +1,5 @@
+services:
+  nutripal.commands:
+    class: \Drupal\nutripal\Commands\NutripalCommands
+    tags:
+      - { name: drush.command }

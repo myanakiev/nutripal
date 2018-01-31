@@ -1,0 +1,23 @@
+uuid: e7e6e491-4f99-4c4e-8eda-8b55e90642c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_monounsaturated_fat
+    - node.type.aliments
+id: node.aliments.field_monounsaturated_fat
+field_name: field_monounsaturated_fat
+entity_type: node
+bundle: aliments
+label: 'Monounsaturated fat (g)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

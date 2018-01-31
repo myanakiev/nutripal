@@ -1,0 +1,23 @@
+uuid: 8f553dca-4299-429f-b9b4-8816c95bb1c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_polyunsaturated_fat
+    - node.type.aliments
+id: node.aliments.field_polyunsaturated_fat
+field_name: field_polyunsaturated_fat
+entity_type: node
+bundle: aliments
+label: 'Polyunsaturated fat (g)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

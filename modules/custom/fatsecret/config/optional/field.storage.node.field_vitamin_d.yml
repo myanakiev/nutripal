@@ -1,0 +1,20 @@
+uuid: 977ef805-e34c-405c-8b1d-3b25dced478e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_vitamin_d
+field_name: field_vitamin_d
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

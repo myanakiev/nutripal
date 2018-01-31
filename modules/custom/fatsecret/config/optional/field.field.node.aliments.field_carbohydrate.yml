@@ -1,0 +1,23 @@
+uuid: 9b9dd58a-1174-42b9-b1be-b7b28c9dbf40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carbohydrate
+    - node.type.aliments
+id: node.aliments.field_carbohydrate
+field_name: field_carbohydrate
+entity_type: node
+bundle: aliments
+label: 'Carbohydrate (g)'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

@@ -47,13 +47,13 @@ class FatsecretSearchForm extends FormBase{
 			$result = ($form_state->getRebuildInfo()['result']);
 			$result = $result['foods']['food'];
 
-			// Query to get the title of all content already existing in Aliment to add a message to options
+			// Query to get the title of all content already existing in Aliments to add a message to options
 
 			$database = \Drupal::database();
 			$query = $database->select('node', 'n');
 			$query->leftJoin('node_field_data', 't', 't.nid = n.nid');
 			$query->fields('t', array('title'));
-			$query->condition('n.type', 'aliment', '=');
+			$query->condition('n.type', 'aliments', '=');
 			$query_result = $query->execute()->fetchAll();
 
 			foreach ($query_result as $aliment) {
@@ -150,7 +150,7 @@ class FatsecretSearchForm extends FormBase{
 				// Dev Contition to delate later
 				if(1==1){
 					// Creation of the node with the right fields and display of a confirmation message
-					$node = Node::create(['type' => 'aliment']);
+					$node = Node::create(['type' => 'aliments']);
 					$node->set('title', $title);
 					$body = [
 						'value' => 'Now that we know who you are, I know who I am. I\'m not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain\'s going to be? He\'s the exact opposite of the hero. And most times they\'re friends, like you and me! I should\'ve known way back when... You know why, David? Because of the kids. They called me Mr Glass.', 
@@ -162,60 +162,59 @@ class FatsecretSearchForm extends FormBase{
 					// We get the data for "100g" serving
 					foreach ($data->food->servings->serving as $serving) {
 						if($serving->serving_description == '100 g'){
-
 							if(isset($serving->calories)){
-								$node->set('calories', $calories);
+								$node->set('field_calories', $serving->calories);
 							}
 							if(isset($serving->calcium)){
-								$node->set('calcium', $calcium);
+								$node->set('field_calcium', $serving->calcium);
 							}
 							if(isset($serving->carbohydrate)){
-								$node->set('carbohydrate', $carbohydrate);
+								$node->set('field_carbohydrate', $serving->carbohydrate);
 							}
 							if(isset($serving->cholesterol)){
-								$node->set('cholesterol', $cholesterol);
+								$node->set('field_cholesterol', $serving->cholesterol);
 							}
 							if(isset($serving->fat)){
-								$node->set('fat', $fat);
+								$node->set('field_total_fat', $serving->fat);
 							}
 							if(isset($serving->fiber)){
-								$node->set('fiber', $fiber);
+								$node->set('field_fiber', $serving->fiber);
 							}
 							if(isset($serving->iron)){
-								$node->set('iron', $iron);
+								$node->set('field_iron', $serving->iron);
 							}
 							if(isset($serving->monounsaturated_fat)){
-								$node->set('monounsaturated_fat', $monounsaturated_fat);
+								$node->set('field_monounsaturated_fat', $serving->monounsaturated_fat);
 							}
 							if(isset($serving->polyunsaturated_fat)){
-								$node->set('polyunsaturated_fat', $polyunsaturated_fat);
+								$node->set('field_polyunsaturated_fat', $serving->polyunsaturated_fat);
 							}
 							if(isset($serving->potassium)){
-								$node->set('potassium', $potassium);
+								$node->set('field_potassium', $serving->potassium);
 							}
 							if(isset($serving->protein)){
-								$node->set('protein', $protein);
+								$node->set('field_protein', $serving->protein);
 							}
 							if(isset($serving->saturated_fat)){
-								$node->set('saturated_fat', $saturated_fat);
+								$node->set('field_saturated_fat', $serving->saturated_fat);
 							}
 							if(isset($serving->sodium)){
-								$node->set('sodium', $sodium);
+								$node->set('field_sodium', $serving->sodium);
 							}
 							if(isset($serving->sugar)){
-								$node->set('sugar', $sugar);
+								$node->set('field_sugar', $serving->sugar);
 							}
 							if(isset($serving->vitamin_a)){
-								$node->set('vitamin_a', $vitamin_a);
+								$node->set('field_vitamin_a', $serving->vitamin_a);
 							}
 							if(isset($serving->vitamin_b)){
-								$node->set('vitamin_b', $vitamin_b);
+								$node->set('field_vitamin_b', $serving->vitamin_b);
 							}
 							if(isset($serving->vitamin_c)){
-								$node->set('vitamin_c', $vitamin_c);
+								$node->set('field_vitamin_c', $serving->vitamin_c);
 							}
 							if(isset($serving->vitamin_d)){
-								$node->set('vitamin_d', $vitamin_d);
+								$node->set('field_vitamin_d', $serving->vitamin_d);
 							}
 						}
 					}

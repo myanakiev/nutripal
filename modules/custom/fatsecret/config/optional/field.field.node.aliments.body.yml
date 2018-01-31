@@ -1,19 +1,19 @@
-uuid: b0f023da-6f8e-446f-bf40-656f255c69b7
+uuid: 058c89fd-7d06-40ed-9af6-4353ffef7b99
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
-    - node.type.aliment
+    - node.type.aliments
   module:
     - text
-id: node.aliment.body
+id: node.aliments.body
 field_name: body
 entity_type: node
-bundle: aliment
+bundle: aliments
 label: Body
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''

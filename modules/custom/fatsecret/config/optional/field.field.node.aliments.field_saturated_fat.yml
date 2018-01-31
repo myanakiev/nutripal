@@ -1,0 +1,23 @@
+uuid: f042bed9-058c-4257-aa5c-14da5e26f7b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_saturated_fat
+    - node.type.aliments
+id: node.aliments.field_saturated_fat
+field_name: field_saturated_fat
+entity_type: node
+bundle: aliments
+label: 'Saturated fat (g)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

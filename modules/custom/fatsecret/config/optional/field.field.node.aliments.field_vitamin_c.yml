@@ -1,0 +1,23 @@
+uuid: c2eaf1d8-878e-4ede-8831-8f38afb9b3d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vitamin_c
+    - node.type.aliments
+id: node.aliments.field_vitamin_c
+field_name: field_vitamin_c
+entity_type: node
+bundle: aliments
+label: 'Vitamin c (%)'
+description: 'Percent Daily Values are based on a 2000 calorie diet. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

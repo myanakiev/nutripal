@@ -1,0 +1,23 @@
+uuid: 296b805d-169a-4dac-8dc0-cadc41bf5a3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vitamin_a
+    - node.type.aliments
+id: node.aliments.field_vitamin_a
+field_name: field_vitamin_a
+entity_type: node
+bundle: aliments
+label: 'Vitamin a (%)'
+description: 'Percent Daily Values are based on a 2000 calorie diet.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

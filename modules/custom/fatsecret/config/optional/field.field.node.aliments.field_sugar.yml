@@ -1,0 +1,23 @@
+uuid: 821e16e7-9c19-4c86-a06b-f39ae24e4ee7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sugar
+    - node.type.aliments
+id: node.aliments.field_sugar
+field_name: field_sugar
+entity_type: node
+bundle: aliments
+label: 'Sugar (g)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

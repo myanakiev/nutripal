@@ -1,0 +1,23 @@
+uuid: 97d35132-4eb3-4253-b72c-5d3ef91a728d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_total_fat
+    - node.type.aliments
+id: node.aliments.field_total_fat
+field_name: field_total_fat
+entity_type: node
+bundle: aliments
+label: 'Total fat (g)'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

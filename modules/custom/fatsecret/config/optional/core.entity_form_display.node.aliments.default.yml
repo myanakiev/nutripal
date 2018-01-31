@@ -1,20 +1,131 @@
-uuid: 1a183bc2-43d2-4cef-828f-bf6458e4d480
+uuid: 2880e2d0-eedd-4de3-87d0-08149b41f417
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.aliment.body
-    - node.type.aliment
+    - field.field.node.aliments.body
+    - field.field.node.aliments.field_calcium
+    - field.field.node.aliments.field_calories
+    - field.field.node.aliments.field_carbohydrate
+    - field.field.node.aliments.field_cholesterol
+    - field.field.node.aliments.field_fiber
+    - field.field.node.aliments.field_iron
+    - field.field.node.aliments.field_monounsaturated_fat
+    - field.field.node.aliments.field_picture
+    - field.field.node.aliments.field_polyunsaturated_fat
+    - field.field.node.aliments.field_potassium
+    - field.field.node.aliments.field_protein
+    - field.field.node.aliments.field_saturated_fat
+    - field.field.node.aliments.field_sodium
+    - field.field.node.aliments.field_sugar
+    - field.field.node.aliments.field_total_fat
+    - field.field.node.aliments.field_vitamin_a
+    - field.field.node.aliments.field_vitamin_b
+    - field.field.node.aliments.field_vitamin_c
+    - field.field.node.aliments.field_vitamin_d
+    - image.style.thumbnail
+    - node.type.aliments
   module:
+    - field_group
+    - image
     - path
     - text
-id: node.aliment.default
+third_party_settings:
+  field_group:
+    group_vitamins:
+      children:
+        - field_vitamin_a
+        - field_vitamin_b
+        - field_vitamin_c
+        - field_vitamin_d
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Vitamins
+    group_fat:
+      children:
+        - field_total_fat
+        - field_saturated_fat
+        - field_monounsaturated_fat
+        - field_polyunsaturated_fat
+        - field_cholesterol
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Fat
+    group_general:
+      children:
+        - title
+        - body
+        - field_picture
+        - field_calories
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: General
+    group_carbohydrate:
+      children:
+        - field_carbohydrate
+        - field_sugar
+        - field_fiber
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: Carbohydrate
+    group_protein:
+      children:
+        - field_protein
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: Protein
+    group_micronutrients:
+      children:
+        - field_calcium
+        - field_iron
+        - field_potassium
+        - field_sodium
+      parent_name: ''
+      weight: 5
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: Micronutrients
+id: node.aliments.default
 targetEntityType: node
-bundle: aliment
+bundle: aliments
 mode: default
 content:
   body:
-    weight: 121
+    weight: 1
     settings:
       rows: 9
       summary_rows: 3
@@ -28,16 +139,150 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_calcium:
+    weight: 26
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_calories:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_carbohydrate:
+    weight: 11
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_cholesterol:
+    weight: 19
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_fiber:
+    weight: 13
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_iron:
+    weight: 27
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_monounsaturated_fat:
+    weight: 17
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_picture:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_polyunsaturated_fat:
+    weight: 18
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_potassium:
+    weight: 28
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_protein:
+    weight: 14
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_saturated_fat:
+    weight: 16
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_sodium:
+    weight: 29
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_sugar:
+    weight: 12
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_total_fat:
+    weight: 15
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_vitamin_a:
+    weight: 24
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_vitamin_b:
+    weight: 25
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_vitamin_c:
+    weight: 26
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_vitamin_d:
+    weight: 27
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 8
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -45,26 +290,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 7
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 120
+    weight: 13
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -72,11 +317,16 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 12
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

@@ -1,27 +1,236 @@
-uuid: cd9ab145-558d-4dad-908f-d5d11451f6e7
+uuid: 19fad4c2-70cc-4c8c-a2b1-2c096de81bbf
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.aliment.body
-    - node.type.aliment
+    - field.field.node.aliments.body
+    - field.field.node.aliments.field_calcium
+    - field.field.node.aliments.field_calories
+    - field.field.node.aliments.field_carbohydrate
+    - field.field.node.aliments.field_cholesterol
+    - field.field.node.aliments.field_fiber
+    - field.field.node.aliments.field_iron
+    - field.field.node.aliments.field_monounsaturated_fat
+    - field.field.node.aliments.field_picture
+    - field.field.node.aliments.field_polyunsaturated_fat
+    - field.field.node.aliments.field_potassium
+    - field.field.node.aliments.field_protein
+    - field.field.node.aliments.field_saturated_fat
+    - field.field.node.aliments.field_sodium
+    - field.field.node.aliments.field_sugar
+    - field.field.node.aliments.field_total_fat
+    - field.field.node.aliments.field_vitamin_a
+    - field.field.node.aliments.field_vitamin_b
+    - field.field.node.aliments.field_vitamin_c
+    - field.field.node.aliments.field_vitamin_d
+    - node.type.aliments
   module:
+    - image
     - text
     - user
-id: node.aliment.default
+id: node.aliments.default
 targetEntityType: node
-bundle: aliment
+bundle: aliments
 mode: default
 content:
   body:
-    weight: 101
+    weight: 20
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  links:
-    weight: 100
+  field_calcium:
+    weight: 3
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
+  field_calories:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_carbohydrate:
+    weight: 4
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_cholesterol:
+    weight: 5
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_fiber:
+    weight: 7
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_iron:
+    weight: 8
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_monounsaturated_fat:
+    weight: 9
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_picture:
+    weight: 1
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_polyunsaturated_fat:
+    weight: 10
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_potassium:
+    weight: 11
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_protein:
+    weight: 12
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_saturated_fat:
+    weight: 13
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_sodium:
+    weight: 14
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_sugar:
+    weight: 15
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_total_fat:
+    weight: 6
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_vitamin_a:
+    weight: 16
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_vitamin_b:
+    weight: 17
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_vitamin_c:
+    weight: 18
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_vitamin_d:
+    weight: 19
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   langcode: true

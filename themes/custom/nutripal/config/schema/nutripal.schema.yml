@@ -1,5 +1,0 @@
-# Schema for the theme setting configuration file of the nutripal theme.
-
-nutripal.settings:
-  type: theme_settings
-  label: 'nutripal settings'

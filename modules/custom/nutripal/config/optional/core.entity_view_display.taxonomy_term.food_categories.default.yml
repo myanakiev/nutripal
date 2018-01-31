@@ -1,0 +1,34 @@
+uuid: 837bfdd9-c559-449b-a3f1-1cb222abb72f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.food_categories.field_picture
+    - image.style.medium
+    - taxonomy.vocabulary.food_categories
+  module:
+    - image
+    - text
+id: taxonomy_term.food_categories.default
+targetEntityType: taxonomy_term
+bundle: food_categories
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_picture:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  langcode: true

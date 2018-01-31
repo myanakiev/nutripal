@@ -11,9 +11,9 @@ third_party_settings:
     parent: 'main:'
 _core:
   default_config_hash: nTVZ3z_Z3g7peBiOPyL-qx5E2CmbxGeDOx9GWQUA9pA
-name: Aliment
-type: aliment
-description: 'Content type for all aliment'
+name: Aliments
+type: aliments
+description: 'Content type for all aliments'
 help: ''
 new_revision: false
 preview_mode: 1

@@ -1,0 +1,11 @@
+uuid: 70e9466d-faf2-43bf-969d-bd9a9b53ec62
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.food_categories
+id: taxonomy_term.food_categories
+target_entity_type_id: taxonomy_term
+target_bundle: food_categories
+default_langcode: site_default
+language_alterable: false

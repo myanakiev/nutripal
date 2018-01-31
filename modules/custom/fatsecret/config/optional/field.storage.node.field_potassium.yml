@@ -1,0 +1,20 @@
+uuid: 6474c197-645c-49b5-b7d7-83699de70c64
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_potassium
+field_name: field_potassium
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

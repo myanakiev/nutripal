@@ -1,0 +1,18 @@
+uuid: dbd64e24-18f4-4381-9a79-f316ab066b92
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_carbohydrate
+field_name: field_carbohydrate
+entity_type: node
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

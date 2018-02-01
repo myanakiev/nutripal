@@ -6,14 +6,7 @@ use Psr\Log\LoggerInterface;
 
 class ImportFoodData {
 
-    /**
-     * Alternative Excel reading format for CSV
-     */
     const FILE_HEAD_ENCODING_UTF8 = "\xEF\xBB\xBF";
-
-    /**
-     * Native Excel Imp/Exp but have to decode/encode data from PHP default UTF-8 to UTF-16LE before Imp/Exp
-     */
     const FILE_HEAD_ENCODING_UNICODE = "\xFF\xFE";
 
     private $logger;
@@ -26,7 +19,13 @@ class ImportFoodData {
         $this->logger->notice($message);
     }
 
-    public function parseFoodData($input_file, $input_head, $nbr_fields, $input_del = ' ', $input_enc = '"', $input_mod = 'rb') {
+    public function parseFoodData($input_file, $input_head, $nbr_fields, $input_del = ' ', $input_enc = '"', $input_mod = 'rb', $rows_max = 0, $rows_offset = 0) {
+        if ($rows_max < 0) {
+            $rows_max = 0;
+        }
+        if ($rows_offset < 0) {
+            $rows_offset = 0;
+        }
         if (($han_i = @fopen($input_file, $input_mod)) !== FALSE) {
             $row = 0;
             
@@ -34,7 +33,7 @@ class ImportFoodData {
                 $this->logMessage("$input_file $row: head dump " . fgetc($han_i));
             }
             
-            while (($data = fgetcsv($han_i, 0, $input_del, $input_enc)) !== FALSE) {
+            while ((($data = fgetcsv($han_i, 0, $input_del, $input_enc)) !== FALSE) && (($rows_max == 0) || ($row < $rows_offset + $rows_max))) {
                 $row++;
                 
                 $key_ind = 0;
@@ -45,6 +44,8 @@ class ImportFoodData {
                     $rc = 'skipping header at row 1...';
                     $this->logMessage("$input_file $row: $rc");
                     continue;
+                } elseif ($row < $rows_offset + 1) {
+                    continue;
                 } elseif (empty($data)) {
                     continue;
                 } elseif (count($data) != $nbr_fields) {
@@ -54,7 +55,6 @@ class ImportFoodData {
                 }
                 
                 $id_import = $this->parseOneData($row, $data);
-                $this->logMessage("$input_file $row: $key => $id_import");
             }
             fclose($han_i);
         } else {
@@ -69,7 +69,7 @@ class ImportFoodData {
         $picturet = $data[5];
         $content  = $data[11];
         
-        $this->logMessage("$tax_name => $ing_name => $pictureu =>");
+        $this->logMessage("$tax_name => $ing_name");
         return 0;
     }
 

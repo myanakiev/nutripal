@@ -3,6 +3,7 @@
 namespace Drupal\nutripal\Commands;
 
 use Drush\Commands\DrushCommands;
+use Drupal\nutripal\Tools\ImportFoodData;
 
 /**
  * A Drush commandfile.
@@ -32,14 +33,22 @@ class NutripalCommands extends DrushCommands {
      * @command nutripal:importfood
      * @aliases ntpif
      */
-    public function importfood($filename, $options = ['file-encoding' => 'UTF-8']) {
+    public function importfood($filename, $options = [
+        'input-head' => ImportFoodData::FILE_HEAD_ENCODING_UTF8,
+        'input-fields' => 0,
+        'input-del' => '	',
+        'input-enc' => '"',
+        'input-mod' => 'rb',
+    ]) {
         // drush nutripal:importfood food.csv --file-encoding=UTF-8
         // drush nutripal:importfood data.csv --file-encoding=UNICODE
-
-        $user = \Drupal::currentUser()->getAccountName();
-        $vars = array('@user' => empty($user) ? 'anonymous' : $user, '@file' => $filename, ':options' => print_r($options, TRUE));
-
-        $this->logger()->success(t('User: @user, File: @file, Options: :options', $vars));
+        // drush nutripal:importfood modules/custom/nutripal/data/CaloriesPOEI.txt --input-fields=12
+        $this->logger()->success(t('Import food data...'));
+        
+        $fdi = new ImportFoodData($this->logger());
+        $fdi->parseFoodData($filename, $options['input-head'], $options['input-fields'], $options['input-del'], $options['input-enc'], $options['input-mod']);
+        
+        $this->logger()->success(t('Import food data done.'));
     }
 
 }

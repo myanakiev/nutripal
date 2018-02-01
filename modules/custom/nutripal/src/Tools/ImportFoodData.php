@@ -5,6 +5,7 @@ namespace Drupal\nutripal\Tools;
 use Psr\Log\LoggerInterface;
 use Drupal\fatsecret\Fatsecret;
 use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
 
 class ImportFoodData {
 
@@ -127,6 +128,8 @@ class ImportFoodData {
     }
 
     public function importOneData($taxonomy_name, $ingredient_name, $picture_url, $picture_name, $html_content, $food_info) {
+        $tem_id = $this->importOneDataTerm($taxonomy_name, 'food_categories');
+        
         $title = $food_info->food->food_name;
         $userid = 1;
 
@@ -141,6 +144,9 @@ class ImportFoodData {
         ];
         $node->set('body', $body);
         $node->set('uid', $userid);
+        
+        // TODO SET TERM ID CREATED //
+        // $node->set('tid', $tem_id);
 
         // We get the data for "100g" serving
         foreach ($food_info->food->servings->serving as $serving) {
@@ -205,6 +211,32 @@ class ImportFoodData {
         $node->setPromoted(FALSE);
         $node->enforceIsNew();
         $node->save();
+    }
+    
+    public function importOneDataTerm($term_name, $vocabulary) {
+        $term_name = mb_convert_case($term_name, MB_CASE_TITLE, 'UTF-8');
+        
+        $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => $term_name]);
+        $term  = reset($terms);
+        
+        if(! empty($term)) {
+            $term_id = $term->id();
+            $this->logMessage("$vocabulary: $term_name ($term_id) exists.");
+            return $term->id();
+        }
+               
+        $term = [
+            'name' => $term_name,
+            'vid' => $vocabulary,
+        ];
+
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($term);
+        $term->save();
+        $term_id = $term->id();
+        
+        $this->logMessage("$vocabulary: $term_name ($term_id) created.");
+        
+        return $term_id;
     }
 
 }

@@ -1,0 +1,14 @@
+uuid: 85dfd5e0-d889-4f08-a450-251aceeafdd4
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: pathauto_taxonomy_all
+label: 'Pathauto Taxonomy All'
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:vocabulary:name]/[term:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

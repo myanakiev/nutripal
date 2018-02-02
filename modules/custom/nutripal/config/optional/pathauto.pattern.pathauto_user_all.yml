@@ -1,0 +1,14 @@
+uuid: 632dee21-19c3-4433-b113-a3d56a3635ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: pathauto_user_all
+label: 'Pathauto User All'
+type: 'canonical_entities:user'
+pattern: 'user/[user:account-name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

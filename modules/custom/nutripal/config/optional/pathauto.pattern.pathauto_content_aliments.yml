@@ -1,0 +1,22 @@
+uuid: 2b620052-3681-4d91-8ee5-d059a42a7b3e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: pathauto_content_aliments
+label: 'Pathauto Content Aliments'
+type: 'canonical_entities:node'
+pattern: '[node:field_food_category:entity:vocabulary]/[node:field_food_category:entity:name]/[node:title]'
+selection_criteria:
+  3600f8be-4fad-4817-8542-907eb30847a0:
+    id: node_type
+    bundles:
+      aliments: aliments
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 3600f8be-4fad-4817-8542-907eb30847a0
+selection_logic: and
+weight: -5
+relationships: {  }

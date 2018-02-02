@@ -5,6 +5,8 @@
  * Install, update and uninstall functions for the NutriPal module.
  */
 
+use Drupal\Core\Database\Database;
+
 /**
  * Implements hook_install().
  */
@@ -16,6 +18,7 @@ function nutripal_install() {
  * Implements hook_uninstall().
  */
 function nutripal_uninstall() {
+
   drupal_set_message(__FUNCTION__);
 }
 
@@ -23,55 +26,32 @@ function nutripal_uninstall() {
  * Implements hook_schema().
  */
 function nutripal_schema() {
-  $schema['nutripal_example'] = [
-    'description' => 'Table description.',
+  $schema['nutripal_user_progression'] = [
+    'description' => 'Table users progression',
     'fields' => [
-      'id' => [
+      'pid' => [
         'type' => 'serial',
         'not null' => TRUE,
-        'description' => 'Primary Key: Unique record ID.',
+        'description' => 'progression id , Primary Key: Unique record ID.',
       ],
       'uid' => [
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE,
-        'default' => 0,
         'description' => 'The {users}.uid of the user who created the record.',
       ],
-      'status' => [
-        'description' => 'Boolean indicating whether this record is active.',
-        'type' => 'int',
-        'unsigned' => TRUE,
+      'weight' => [
+        'description' => 'user\'s weight',
+        'type' => 'float',
         'not null' => TRUE,
-        'default' => 0,
-        'size' => 'tiny',
       ],
-      'type' => [
-        'type' => 'varchar_ascii',
-        'length' => 64,
-        'not null' => TRUE,
-        'default' => '',
-        'description' => 'Type of the record.',
-      ],
-      'created' => [
+      'date' => [
         'type' => 'int',
         'not null' => TRUE,
-        'default' => 0,
-        'description' => 'Timestamp when the record was created.',
-      ],
-      'data' => [
-        'type' => 'blob',
-        'not null' => TRUE,
-        'size' => 'big',
-        'description' => 'The arbitrary data for the item.',
+        'description' => 'Date of the record.',
       ],
     ],
-    'primary key' => ['id'],
-    'indexes' => [
-      'type' => ['type'],
-      'uid' => ['uid'],
-      'status' => ['status'],
-    ],
+    'primary key' => ['pid'],
   ];
 
   return $schema;
@@ -94,3 +74,4 @@ function nutripal_requirements($phase) {
 
   return $requirements;
 }
+

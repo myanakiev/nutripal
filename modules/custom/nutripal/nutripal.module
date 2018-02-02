@@ -7,4 +7,18 @@
  * @DCG
  * This file is no longer required in Drupal 8.
  * @see https://www.drupal.org/node/2217931
+ 
+ /**
+ * Implements nutripal_page_attachements_alter().
+ *
+ *@param array &$attachements
  */
+ function nutripal_page_attachements_alter(array &$attachements) {
+ 	$ennerick = 'ennerick';
+
+ 	$attachements ['#attached']['library'][] = 'nutripal/user-progression';
+ 	$attachements ['#attached']['drupalSettings']['nutripal']['ennerick'] = $ennerick;
+ }
+
+
+

@@ -13,3 +13,20 @@ nutripal.settings_form:
     _form: 'Drupal\nutripal\Form\SettingsForm'
   requirements:
     _permission: 'administer nutripal configuration'
+
+nutripal.user_progression:
+  path: '/user/{user}/progression'
+  defaults:
+    _title: 'User progression'
+    _controller: '\Drupal\nutripal\Controller\NutripalUserProgressionController::content'
+    param: 'no parameter'
+  requirements:
+    _access: 'TRUE'
+
+user.progression_form:
+  path: '/user-progression-form'
+  defaults:
+    _title: 'user progression from'
+    _form: '\Drupal\nutripal\Form\UserProgressionForm'
+  requirements:
+    _access: 'TRUE'

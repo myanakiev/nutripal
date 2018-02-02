@@ -9,6 +9,15 @@ nutripal:
     - core/drupalSettings
     - nutripal/jquery-labelauty
 
+
+user-progression:
+  js:
+    js/user-progression.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+
 # Third-party library (self hosted).
 jquery-labelauty:
   remote: https://github.com/fntneves/jquery-labelauty

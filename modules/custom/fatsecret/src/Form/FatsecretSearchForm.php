@@ -88,9 +88,12 @@ class FatsecretSearchForm extends FormBase{
 		}
 		if(isset($form_state->getRebuildInfo()['checked'])){
 			foreach ($form_state->getRebuildInfo()['checked'] as $title) {
-				$form['description_'.$title] = [
+				$title_system = str_replace(" ","_",$title);
+				$title_system = mb_strtolower($title_system);
+				$form['description_'.$title_system] = [
 					'#type' => 'textarea',
 					'#title' => $this->t('Description for '.$title),
+					'#resizable' => 'none',
 				];
 			}
 			$form['create_content'] = [
@@ -183,7 +186,9 @@ class FatsecretSearchForm extends FormBase{
 				// Creation of the node with the right fields and display of a confirmation message
 				$node = Node::create(['type' => 'aliments']);
 				$node->set('title', $title);
-				$description = $form_state->getValue('description_'.$title);
+				$title_system = str_replace(" ","_",$title);
+				$title_system = mb_strtolower($title_system);
+				$description = $form_state->getValue('description_'.$title_system);
 				$body = [
 					'value' => $description, 
 					'format' => 'basic_html',

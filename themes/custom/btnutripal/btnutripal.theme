@@ -6,3 +6,7 @@
  *
  * Place your custom PHP code in this file.
  */
+
+function btnutripal_preprocess_node(&$variables) {
+  //kint($variables['content']);
+}

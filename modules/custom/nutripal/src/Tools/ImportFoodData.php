@@ -128,6 +128,7 @@ class ImportFoodData {
     }
 
     public function importOneData($taxonomy_name, $ingredient_name, $picture_url, $picture_name, $html_content, $food_info) {
+        // https://api.drupal.org/api/drupal/core%21modules%21node%21src%21Plugin%21views%21argument_default%21Node.php/function/Node%3A%3Acreate/8.2.x
         $tem_id = $this->importOneDataTerm($taxonomy_name, 'food_categories');
         
         $title = $food_info->food->food_name;
@@ -145,8 +146,8 @@ class ImportFoodData {
         $node->set('body', $body);
         $node->set('uid', $userid);
         
-        // TODO SET TERM ID CREATED //
-        // $node->set('tid', $tem_id);
+        // set the term reference field
+        $node->set('field_food_category', $tem_id);
 
         // We get the data for "100g" serving
         foreach ($food_info->food->servings->serving as $serving) {

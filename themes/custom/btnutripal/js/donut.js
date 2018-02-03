@@ -24,10 +24,10 @@
             	1: { color: 'firebrick' },
             	2: { color: 'orange' },
          	  },
-         	  chartArea:{left:0,top:0,width:'100%',height:'100%'}
+         	  chartArea:{left:10,top:0,right:0,width:'100%',height:'100%'}
 	        };
 
-	        var chart = new google.visualization.PieChart(document.getElementById('nutrition_donut'));
+	        var chart = new google.visualization.PieChart(document.getElementById('nutrition-donut'));
 
 	        chart.draw(data, options);
 	      }

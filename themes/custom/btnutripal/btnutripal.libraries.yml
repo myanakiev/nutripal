@@ -18,8 +18,11 @@ bootstrap-scripts:
     bootstrap/assets/javascripts/bootstrap/tab.js: {}
     bootstrap/assets/javascripts/bootstrap/transition.js: {}
 
-nutripal:
+nutripal_aliments:
   version: 0
+  css:
+    theme:
+      css/aliments.css: {}
   js:
     https://www.gstatic.com/charts/loader.js: { type: external, minified: true }
     js/donut.js: {}

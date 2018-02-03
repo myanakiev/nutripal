@@ -66,7 +66,7 @@
  */
 #}
 
-{{ attach_library('btnutripal/nutripal') }}
+{{ attach_library('btnutripal/nutripal_aliments') }}
 {%
   set classes = [
     node.bundle|clean_class,
@@ -100,13 +100,12 @@
   <div{{ content_attributes.addClass('content') }}>
     {{ content.field_picture }}
     {{ content.body}}
-    <div class = "nutrition_header">
-      <span>Nutrional Value for </span>
-      <span>100g</span>
-    </div>
+    
     <div class="nutrition_values">
-      <div id= "piechart" style="width: 450px; height: 250px;">
-      </div>
+      <h2 class = "nutrition_header">
+        <span>{% trans %}Nutrional Values for{% endtrans %} </span>
+        <span>100g</span>
+      </h2>
       <div class ="value_details">
         <ul>
           <li><span>{% trans %}Calories{% endtrans %}</span><span> {{content.field_calories.0 }} kcal</span></li>
@@ -136,9 +135,9 @@
             <li><span>{% trans %}Sodium: {% endtrans %}</span><span> {{content.field_sodium.0}} mg</span></li>
           </ul>
         </ul>
-
       </div>
-
+      <div id= "nutrition_donut" >
+      </div>
     </div>
   </div>
 

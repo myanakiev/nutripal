@@ -23,3 +23,5 @@ nutripal:
   js:
     https://www.gstatic.com/charts/loader.js: { type: external, minified: true }
     js/donut.js: {}
+  dependencies:
+    - core/jquery

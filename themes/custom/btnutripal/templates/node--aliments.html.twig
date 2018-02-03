@@ -99,6 +99,7 @@
 
   <div{{ content_attributes.addClass('content') }}>
     {{ content.field_picture }}
+    {{ content.body}}
     <div class = "nutrition_header">
       <span>Nutrional Value for </span>
       <span>100g</span>
@@ -116,10 +117,10 @@
           </ul>
           <li><span>{% trans %}Protein: {% endtrans %}</span><span> {{content.field_protein.0}} g</span></li>
           <ul>
-            <li><span>{% trans %}Total fat: {% endtrans %}</span><span> {{content.field_total_fat.0}} mg</span></li>
-            <li><span>{% trans %}Saturated fat: {% endtrans %}</span><span> {{content.field_saturated_fat.0}} mg</span></li>
-            <li><span>{% trans %}Monounsaturated fat: {% endtrans %}</span><span> {{content.field_monounsaturated_fat.0}} mg</span></li>
-            <li><span>{% trans %}Polyunsaturated fat: {% endtrans %}</span><span> {{content.field_polyunsaturated_fat.0}} mg</span></li>
+            <li><span>{% trans %}Total fat: {% endtrans %}</span><span> {{content.field_total_fat.0}} g</span></li>
+            <li><span>{% trans %}Saturated fat: {% endtrans %}</span><span> {{content.field_saturated_fat.0}} g</span></li>
+            <li><span>{% trans %}Monounsaturated fat: {% endtrans %}</span><span> {{content.field_monounsaturated_fat.0}} g</span></li>
+            <li><span>{% trans %}Polyunsaturated fat: {% endtrans %}</span><span> {{content.field_polyunsaturated_fat.0}} g</span></li>
             <li><span>{% trans %}Cholesterol: {% endtrans %}</span><span> {{content.field_cholesterol.0}} mg</span></li>
           </ul>
           <ul>

@@ -10,3 +10,19 @@
 function btnutripal_preprocess_node(&$variables) {
   //kint($variables['content']);
 }
+
+function btnutripal_page_attachments_alter(array &$page) {
+
+	$node = \Drupal::routeMatch()->getParameter('node');
+	if (is_object($node) && $node != null && $node->getType() == 'aliments') {
+	    $node->id();
+
+	    $fat= $node->field_total_fat->value;
+	    $protein = $node->field_protein->value;
+	    $carbohydrate = $node->field_carbohydrate->value;
+
+	    $page['#attached']['drupalSettings']['nutripal']['values']['fat'] =  $fat;
+	    $page['#attached']['drupalSettings']['nutripal']['values']['protein'] =  $protein;
+	    $page['#attached']['drupalSettings']['nutripal']['values']['carbohydrate'] =  $carbohydrate;
+	}
+}

@@ -99,12 +99,12 @@
 
   <div{{ content_attributes.addClass('content') }}>
     {{ content.field_picture }}
-    {{ content.body}}
+    {{ content.body }}
     
     <div class="nutrition-values">
       <h2 class = "nutrition-header">
         <span>{% trans %}Nutrional Values <br> for{% endtrans %} </span>
-        <span>100g</span>
+        <span>{{ serving }}</span>
       </h2>
       <div class ="values-details">
         <ul>
@@ -134,7 +134,7 @@
               <li class="vitamin"><span>{% trans %}Vitamin c:{% endtrans %}</span><span> {{content.field_vitamin_c.0}} %</span></li>
             {% endif %}
             {% if content.field_vitamin_d.0 %}
-              <li class="vitamin"><span>{% trans %}Vitamin d.0:{% endtrans %}</span><span> {{content.field_vitamin_d.0.0}} %</span></li>
+              <li class="vitamin"><span>{% trans %}Vitamin d:{% endtrans %}</span><span> {{content.field_vitamin_d.0.0}} %</span></li>
             {% endif %}
           </ul>
           <li class="main-value"><span>{% trans %}Micronutrients:{% endtrans %}</span></li>

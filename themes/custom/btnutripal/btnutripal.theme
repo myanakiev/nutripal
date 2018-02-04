@@ -8,14 +8,38 @@
  */
 
 function btnutripal_preprocess_node(&$variables) {
-  //kint($variables['content']);
+	$serving = \Drupal::request()->query->get('serving');
+	if($variables['node']->getType() == 'aliments'){
+		$variables['serving'] = "100 g";
+		$variables['#cache']['max-age'] = 1;
+		if(isset($serving)){
+			$variables['serving'] = $serving." g";
+			$variables['content']['field_calories'][0]['#markup'] = round((floatVal($variables['content']['field_calories'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_calcium'][0]['#markup'] = round((floatVal($variables['content']['field_calcium'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_carbohydrate'][0]['#markup'] = round((floatVal($variables['content']['field_carbohydrate'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_cholesterol'][0]['#markup'] = round((floatVal($variables['content']['field_cholesterol'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_total_fat'][0]['#markup'] = round((floatVal($variables['content']['field_total_fat'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_fiber'][0]['#markup'] = round((floatVal($variables['content']['field_fiber'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_iron'][0]['#markup'] = round((floatVal($variables['content']['field_iron'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_monounsaturated_fat'][0]['#markup'] = round((floatVal($variables['content']['field_monounsaturated_fat'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_polyunsaturated_fat'][0]['#markup'] = round((floatVal($variables['content']['field_polyunsaturated_fat'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_potassium'][0]['#markup'] = round((floatVal($variables['content']['field_potassium'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_protein'][0]['#markup'] = round((floatVal($variables['content']['field_protein'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_saturated_fat'][0]['#markup'] = round((floatVal($variables['content']['field_saturated_fat'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_sodium'][0]['#markup'] = round((floatVal($variables['content']['field_sodium'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_sugar'][0]['#markup'] = round((floatVal($variables['content']['field_sugar'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_vitamin_a'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_a'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_vitamin_b'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_b'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_vitamin_c'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_c'][0]['#markup'])/100)*floatVal($serving), 2);
+			$variables['content']['field_vitamin_d'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_d'][0]['#markup'])/100)*floatVal($serving), 2);
+		}
+	}
 }
 
 function btnutripal_page_attachments_alter(array &$page) {
-
+	
 	$node = \Drupal::routeMatch()->getParameter('node');
 	if (is_object($node) && $node != null && $node->getType() == 'aliments') {
-	    $node->id();
 
 	    $fat= $node->field_total_fat->value;
 	    $protein = $node->field_protein->value;

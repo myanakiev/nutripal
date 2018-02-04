@@ -55,3 +55,7 @@
 #nutrition-donut{
 	width: 100%;
 }
+
+.aliments .form-required:after {
+    background-image:none;
+}

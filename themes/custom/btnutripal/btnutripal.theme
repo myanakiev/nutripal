@@ -8,8 +8,16 @@
  */
 
 function btnutripal_preprocess_node(&$variables) {
-	$serving = \Drupal::request()->query->get('serving');
 	if($variables['node']->getType() == 'aliments'){
+		$serving_calculator = \Drupal\block\Entity\Block::load('nutripalnutritionvaluescalculator');
+		$serving_calculator_view = \Drupal::entityTypeManager()
+		  ->getViewBuilder('block')
+		  ->view($serving_calculator);
+		if ($serving_calculator_view) {
+		    $variables['serving_calculator'] = $serving_calculator_view;
+		}
+
+		$serving = \Drupal::request()->query->get('serving');
 		$variables['serving'] = "100 g";
 		$variables['#cache']['max-age'] = 1;
 		if(isset($serving)){

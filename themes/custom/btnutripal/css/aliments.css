@@ -4,16 +4,10 @@
 
 
 .aliments .field--name-body{
-	float: left;
-    width: 58%;
-    margin: 10px 2% 10px 0px;
     text-align:justify;
 }
 
 .aliments .nutrition-values{
-	float: left;
-    width: 40%;
-    margin: 10px 0px;
     padding: 20px;
     background-color: #337ab7;
     border-radius: 10px;

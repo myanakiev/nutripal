@@ -1,0 +1,20 @@
+uuid: 7b5b5337-fb7c-4c3c-b29b-435f2c56f19b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_food_category
+field_name: field_food_category
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,30 @@
+uuid: ece7dd94-adb5-40f2-b529-37122bc55030
+langcode: en
+status: true
+dependencies: {  }
+id: user_support
+label: 'User support'
+weight: -7
+is_admin: null
+permissions:
+  - 'access user contact forms'
+  - 'access user profiles'
+  - 'administer comments'
+  - 'administer newsletters'
+  - 'administer simplenews settings'
+  - 'administer simplenews subscriptions'
+  - 'administer users'
+  - 'cancel account'
+  - 'change own username'
+  - 'create simplenews_issue content'
+  - 'delete any simplenews_issue content'
+  - 'delete own simplenews_issue content'
+  - 'delete simplenews_issue revisions'
+  - 'edit any simplenews_issue content'
+  - 'edit own comments'
+  - 'edit own simplenews_issue content'
+  - 'revert simplenews_issue revisions'
+  - 'select account cancellation method'
+  - 'send newsletter'
+  - 'skip comment approval'
+  - 'view simplenews_issue revisions'

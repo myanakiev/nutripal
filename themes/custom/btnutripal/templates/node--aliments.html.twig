@@ -97,11 +97,13 @@
     </footer>
   {% endif %}
 
-  <div{{ content_attributes.addClass('content') }}>
-    {{ content.field_picture }}
-    {{ content.body }}
+  <div{{ content_attributes.addClass('content','row') }}>
+    <div class="col-sm-8">
+      {{ content.field_picture }}
+      {{ content.body }}
+    </div>
     
-    <div class="nutrition-values">
+    <div class="nutrition-values col-sm-4">
       <h2 class = "nutrition-header">
         <span>{% trans %}Nutrional Values <br> for{% endtrans %} </span>
         <span>{{ serving }}</span>

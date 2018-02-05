@@ -1,0 +1,11 @@
+uuid: c27d16d8-971d-4072-abce-d428cb072bcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.aliments
+id: node.aliments
+target_entity_type_id: node
+target_bundle: aliments
+default_langcode: site_default
+language_alterable: false

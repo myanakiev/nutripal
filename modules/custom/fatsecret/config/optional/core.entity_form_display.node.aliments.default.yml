@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.aliments.field_carbohydrate
     - field.field.node.aliments.field_cholesterol
     - field.field.node.aliments.field_fiber
+    - field.field.node.aliments.field_food_category
     - field.field.node.aliments.field_iron
     - field.field.node.aliments.field_monounsaturated_fat
     - field.field.node.aliments.field_picture
@@ -173,6 +174,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_food_category:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_iron:
     weight: 27

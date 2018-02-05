@@ -1,8 +1,9 @@
-uuid: 19fad4c2-70cc-4c8c-a2b1-2c096de81bbf
+uuid: 2c5f8ee7-e3f3-48fb-99b0-8f379abf80bf
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.teaser
     - field.field.node.aliments.body
     - field.field.node.aliments.field_calcium
     - field.field.node.aliments.field_calories
@@ -29,35 +30,39 @@ dependencies:
     - image
     - text
     - user
-id: node.aliments.default
+id: node.aliments.teaser
 targetEntityType: node
 bundle: aliments
-mode: default
+mode: teaser
 content:
   body:
-    weight: 2
-    label: hidden
+    weight: 20
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_calcium:
-    weight: 4
-    label: hidden
-    settings: {  }
+    weight: 3
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_integer
     region: content
   field_calories:
-    weight: 3
-    label: hidden
-    settings: {  }
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_integer
     region: content
   field_carbohydrate:
-    weight: 5
-    label: hidden
+    weight: 4
+    label: above
     settings:
       thousand_separator: ''
       decimal_separator: .
@@ -67,36 +72,56 @@ content:
     type: number_decimal
     region: content
   field_cholesterol:
-    weight: 6
-    label: hidden
-    settings: {  }
+    weight: 5
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_integer
     region: content
   field_fiber:
-    weight: 8
-    label: hidden
-    settings: {  }
+    weight: 7
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_decimal
+    region: content
+  field_food_category:
+    weight: 21
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_iron:
-    weight: 9
-    label: hidden
-    settings: {  }
+    weight: 8
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_integer
     region: content
   field_monounsaturated_fat:
-    weight: 10
-    label: hidden
-    settings: {  }
+    weight: 9
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_decimal
     region: content
   field_picture:
     weight: 1
-    label: hidden
+    label: above
     settings:
       image_style: ''
       image_link: ''
@@ -104,81 +129,113 @@ content:
     type: image
     region: content
   field_polyunsaturated_fat:
-    weight: 11
-    label: hidden
-    settings: {  }
+    weight: 10
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_decimal
     region: content
   field_potassium:
-    weight: 12
-    label: hidden
-    settings: {  }
+    weight: 11
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_integer
     region: content
   field_protein:
-    weight: 13
-    label: hidden
-    settings: {  }
+    weight: 12
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_decimal
     region: content
   field_saturated_fat:
-    weight: 14
-    label: hidden
-    settings: {  }
+    weight: 13
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_decimal
     region: content
   field_sodium:
-    weight: 15
-    label: hidden
-    settings: {  }
+    weight: 14
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_integer
     region: content
   field_sugar:
-    weight: 16
-    label: hidden
-    settings: {  }
+    weight: 15
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_decimal
     region: content
   field_total_fat:
-    weight: 7
-    label: hidden
-    settings: {  }
+    weight: 6
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_decimal
     region: content
   field_vitamin_a:
-    weight: 17
-    label: hidden
-    settings: {  }
+    weight: 16
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_integer
     region: content
   field_vitamin_b:
-    weight: 18
-    label: hidden
-    settings: {  }
+    weight: 17
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_integer
     region: content
   field_vitamin_c:
-    weight: 19
-    label: hidden
-    settings: {  }
+    weight: 18
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_integer
     region: content
   field_vitamin_d:
-    weight: 20
-    label: hidden
-    settings: {  }
+    weight: 19
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-    type: number_unformatted
+    type: number_integer
     region: content
   links:
     weight: 0
@@ -186,5 +243,4 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_food_category: true
   langcode: true

@@ -1,0 +1,48 @@
+uuid: 7ce04e5b-512b-4aa7-bce1-21b5347729f4
+langcode: en
+status: true
+dependencies: {  }
+id: content_redactor
+label: Content_redactor
+weight: -8
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access files overview'
+  - 'access in-place editing'
+  - 'administer crop types'
+  - 'administer nodes'
+  - 'bypass node access'
+  - 'create aliments content'
+  - 'create article content'
+  - 'create content translations'
+  - 'delete aliments revisions'
+  - 'delete all revisions'
+  - 'delete any aliments content'
+  - 'delete any article content'
+  - 'delete article revisions'
+  - 'delete content translations'
+  - 'delete own aliments content'
+  - 'delete own article content'
+  - 'delete terms in food_categories'
+  - 'delete terms in tags'
+  - 'edit any aliments content'
+  - 'edit any article content'
+  - 'edit own aliments content'
+  - 'edit own article content'
+  - 'edit terms in food_categories'
+  - 'edit terms in tags'
+  - 'fatsecret config'
+  - 'fatsecret search'
+  - 'revert aliments revisions'
+  - 'revert all revisions'
+  - 'revert article revisions'
+  - 'skip comment approval'
+  - 'update content translations'
+  - 'use advanced search'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
+  - 'view aliments revisions'
+  - 'view all revisions'
+  - 'view article revisions'
+  - 'view own unpublished content'

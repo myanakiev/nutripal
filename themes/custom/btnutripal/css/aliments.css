@@ -53,3 +53,12 @@
 .aliments .form-required:after {
     background-image:none;
 }
+
+.aliment .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    clear: left;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;

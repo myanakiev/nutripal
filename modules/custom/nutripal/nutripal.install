@@ -54,6 +54,47 @@ function nutripal_schema() {
     'primary key' => ['pid'],
   ];
 
+  $schema['nutripal_user_meals'] = [
+    'description' => 'Table for the aliments saved in meals by users',
+    'fields' => [
+      'pid' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'progression id , Primary Key: Unique record ID.',
+      ],
+      'uid' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'The {users}.uid of the user who created the record.',
+      ],
+      'aid' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'The aliment id.',
+      ],
+      'meal_name' => [
+        'description' => 'the name of the meal.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+      'serving' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'The serving in gram.',
+      ],
+      'date' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'Date of the record.',
+      ],
+    ],
+    'primary key' => ['pid'],
+  ];
+
   return $schema;
 }
 

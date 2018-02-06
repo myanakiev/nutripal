@@ -120,18 +120,24 @@ class ImportFoodData {
         }
         if ($ids == 0) {
             $this->logMessage("$ing_name: not found in foodfacts!");
-            return;
+            if(empty($content)) {
+                $this->logMessage("$ing_name: food not imported (empty content too)!");
+                return;
+            }
+            $food_info = NULL;
+        } else {
+            $food_info = json_decode(Fatsecret::getFood($ids, $key, $secret), FALSE);
         }
-
-        $food_info = json_decode(Fatsecret::getFood($ids, $key, $secret), FALSE);
+        
         $this->importOneData($tax_name, $ing_name, $pictureu, $picturet, $content, $food_info);
     }
 
     public function importOneData($taxonomy_name, $ingredient_name, $picture_url, $picture_name, $html_content, $food_info) {
         // https://api.drupal.org/api/drupal/core%21modules%21node%21src%21Plugin%21views%21argument_default%21Node.php/function/Node%3A%3Acreate/8.2.x
         $tem_id = $this->importOneDataTerm($taxonomy_name, 'food_categories');
+        $picture = $this->importOneDataPictureImage($picture_url, $picture_name);
         
-        $title = $food_info->food->food_name;
+        $title = mb_convert_case($ingredient_name, MB_CASE_TITLE);
         $userid = 1;
 
         $this->logMessage("$ingredient_name: $title");
@@ -149,62 +155,74 @@ class ImportFoodData {
         // set the term reference field
         $node->set('field_food_category', $tem_id);
 
+        // set the picture/image reference field
+        if(! empty($picture)) {
+            $field_image = [
+                'target_id' => $picture->id(),
+                'alt' => $ingredient_name,
+                'title' => $ingredient_name,
+            ];
+            $node->set('field_picture', $field_image);
+        }
+        
         // We get the data for "100g" serving
-        foreach ($food_info->food->servings->serving as $serving) {
-            if ($serving->serving_description == '100 g') {
-                if (isset($serving->calories)) {
-                    $node->set('field_calories', $serving->calories);
-                }
-                if (isset($serving->calcium)) {
-                    $node->set('field_calcium', $serving->calcium);
-                }
-                if (isset($serving->carbohydrate)) {
-                    $node->set('field_carbohydrate', $serving->carbohydrate);
-                }
-                if (isset($serving->cholesterol)) {
-                    $node->set('field_cholesterol', $serving->cholesterol);
-                }
-                if (isset($serving->fat)) {
-                    $node->set('field_total_fat', $serving->fat);
-                }
-                if (isset($serving->fiber)) {
-                    $node->set('field_fiber', $serving->fiber);
-                }
-                if (isset($serving->iron)) {
-                    $node->set('field_iron', $serving->iron);
-                }
-                if (isset($serving->monounsaturated_fat)) {
-                    $node->set('field_monounsaturated_fat', $serving->monounsaturated_fat);
-                }
-                if (isset($serving->polyunsaturated_fat)) {
-                    $node->set('field_polyunsaturated_fat', $serving->polyunsaturated_fat);
-                }
-                if (isset($serving->potassium)) {
-                    $node->set('field_potassium', $serving->potassium);
-                }
-                if (isset($serving->protein)) {
-                    $node->set('field_protein', $serving->protein);
-                }
-                if (isset($serving->saturated_fat)) {
-                    $node->set('field_saturated_fat', $serving->saturated_fat);
-                }
-                if (isset($serving->sodium)) {
-                    $node->set('field_sodium', $serving->sodium);
-                }
-                if (isset($serving->sugar)) {
-                    $node->set('field_sugar', $serving->sugar);
-                }
-                if (isset($serving->vitamin_a)) {
-                    $node->set('field_vitamin_a', $serving->vitamin_a);
-                }
-                if (isset($serving->vitamin_b)) {
-                    $node->set('field_vitamin_b', $serving->vitamin_b);
-                }
-                if (isset($serving->vitamin_c)) {
-                    $node->set('field_vitamin_c', $serving->vitamin_c);
-                }
-                if (isset($serving->vitamin_d)) {
-                    $node->set('field_vitamin_d', $serving->vitamin_d);
+        if (!empty($food_info)) {
+            foreach ($food_info->food->servings->serving as $serving) {
+                if ($serving->serving_description == '100 g') {
+                    if (isset($serving->calories)) {
+                        $node->set('field_calories', $serving->calories);
+                    }
+                    if (isset($serving->calcium)) {
+                        $node->set('field_calcium', $serving->calcium);
+                    }
+                    if (isset($serving->carbohydrate)) {
+                        $node->set('field_carbohydrate', $serving->carbohydrate);
+                    }
+                    if (isset($serving->cholesterol)) {
+                        $node->set('field_cholesterol', $serving->cholesterol);
+                    }
+                    if (isset($serving->fat)) {
+                        $node->set('field_total_fat', $serving->fat);
+                    }
+                    if (isset($serving->fiber)) {
+                        $node->set('field_fiber', $serving->fiber);
+                    }
+                    if (isset($serving->iron)) {
+                        $node->set('field_iron', $serving->iron);
+                    }
+                    if (isset($serving->monounsaturated_fat)) {
+                        $node->set('field_monounsaturated_fat', $serving->monounsaturated_fat);
+                    }
+                    if (isset($serving->polyunsaturated_fat)) {
+                        $node->set('field_polyunsaturated_fat', $serving->polyunsaturated_fat);
+                    }
+                    if (isset($serving->potassium)) {
+                        $node->set('field_potassium', $serving->potassium);
+                    }
+                    if (isset($serving->protein)) {
+                        $node->set('field_protein', $serving->protein);
+                    }
+                    if (isset($serving->saturated_fat)) {
+                        $node->set('field_saturated_fat', $serving->saturated_fat);
+                    }
+                    if (isset($serving->sodium)) {
+                        $node->set('field_sodium', $serving->sodium);
+                    }
+                    if (isset($serving->sugar)) {
+                        $node->set('field_sugar', $serving->sugar);
+                    }
+                    if (isset($serving->vitamin_a)) {
+                        $node->set('field_vitamin_a', $serving->vitamin_a);
+                    }
+                    if (isset($serving->vitamin_b)) {
+                        $node->set('field_vitamin_b', $serving->vitamin_b);
+                    }
+                    if (isset($serving->vitamin_c)) {
+                        $node->set('field_vitamin_c', $serving->vitamin_c);
+                    }
+                    if (isset($serving->vitamin_d)) {
+                        $node->set('field_vitamin_d', $serving->vitamin_d);
+                    }
                 }
             }
         }
@@ -238,6 +256,16 @@ class ImportFoodData {
         $this->logMessage("$vocabulary: $term_name ($term_id) created.");
         
         return $term_id;
+    }
+    
+    public function importOneDataPictureImage($picture_url, $picture_name) {
+        // Create file object from remote URL.
+        if((! empty($picture_url)) && (($data = @file_get_contents($picture_url)) !== FALSE)) {
+            $destination = file_default_scheme() . '://' . $picture_name;
+            return file_save_data($data, $destination, FILE_EXISTS_REPLACE);
+        }
+        
+        return NULL;
     }
 
 }

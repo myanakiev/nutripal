@@ -136,7 +136,7 @@ class ConversionTableForm extends FormBase {
 
         // On passe le résultat.
         $form_state->addRebuildInfo('conv-fr-v', $vl_fr);
-        $form_state->addRebuildInfo('conv-to-v', $resut);
+        $form_state->addRebuildInfo('conv-to-v', round($resut, 2));
         // Reconstruction du formulaire avec les valeurs saisies.
         $form_state->setRebuild();
     }

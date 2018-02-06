@@ -1,0 +1,4 @@
+nutripal.progression:
+  route_name: nutripal.user_progression
+  base_route: entity.user.canonical
+  title: 'Progression'

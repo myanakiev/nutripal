@@ -16,7 +16,7 @@ class NutripalUserProgressionController extends ControllerBase {
     $registeredDate = $user->getCreatedTime();
     //kint($registeredDate);
     $weight = $user->field_weight->getString();
-
+   	$weight_t = $user->field_target_weight->getString();
 
     $progression = \Drupal::database()->select('nutripal_user_progression')
     				->fields('nutripal_user_progression', ['uid', 'weight', 'date'])
@@ -25,16 +25,16 @@ class NutripalUserProgressionController extends ControllerBase {
 
     $rows = [];
     
-    $rows[] = [$weight, $registeredDate];
+    $rows[] = [\Drupal::service('date.formatter')->format($registeredDate, $format = 'd/m/Y'), $weight, $weight_t];
     //kint($registeredDate);
     if($progression) {
 
     	foreach ($progression as $value) {
-    		$rows[] = [$value->weight,$value->date];
+    		$rows[] = [\Drupal::service('date.formatter')->format($value->date, $format = 'd/m/Y'),$value->weight , $weight_t];
     	}
     }
 
-    $headers = array('weight', 'date');
+    $headers = array('date', 'weight', 'target weight');
 
     $form = \Drupal::formBuilder()->getForm('\Drupal\nutripal\Form\UserProgressionForm');
 

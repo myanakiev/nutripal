@@ -1,0 +1,22 @@
+uuid: 31385ac4-40b4-4976-a49a-fce2490f0ad5
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nutripal
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: nutripal_content
+theme: nutripal
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

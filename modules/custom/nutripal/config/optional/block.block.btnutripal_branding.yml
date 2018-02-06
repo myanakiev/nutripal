@@ -1,0 +1,25 @@
+uuid: 74a740df-4bf6-4db0-a59c-f77dcf45c249
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - btnutripal
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: btnutripal_branding
+theme: btnutripal
+region: navigation
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

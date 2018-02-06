@@ -1,0 +1,24 @@
+uuid: 67b8ca1c-bb10-4da7-9133-e3f8700e6b89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_target_weight
+  module:
+    - user
+id: user.user.field_target_weight
+field_name: field_target_weight
+entity_type: user
+bundle: user
+label: target_weight
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: kg
+field_type: float

@@ -1,0 +1,22 @@
+uuid: ccf6abe6-a01d-455d-aaae-70fe798ec4a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - btnutripal
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: btnutripal_help
+theme: btnutripal
+region: content
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

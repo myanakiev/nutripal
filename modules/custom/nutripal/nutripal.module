@@ -13,12 +13,42 @@
  *
  *@param array &$attachements
  */
- function nutripal_page_attachements_alter(array &$attachements) {
- 	$ennerick = 'ennerick';
-
- 	$attachements ['#attached']['library'][] = 'nutripal/user-progression';
- 	$attachements ['#attached']['drupalSettings']['nutripal']['ennerick'] = $ennerick;
- }
+function nutripal_page_attachments_alter(array &$page) {
+	$format = 'd/m';
 
 
 
+    $userRoute = \Drupal::routeMatch()->getCurrentRouteMatch()->getRouteName();
+
+    $user = \Drupal::routeMatch()->getParameter('user');
+
+    if ($userRoute == 'nutripal.user_progression') {
+
+    	$page['#attached']['library'][] = 'nutripal/user-progression';
+    	$idUser = $user->id();
+    	$registeredDate = $user->getCreatedTime();
+    	$weight = $user->field_weight->getString();
+    	$weight_t = $user->field_target_weight->getString();
+
+    	$progression = \Drupal::database()->select('nutripal_user_progression')
+    				->fields('nutripal_user_progression', ['uid', 'weight', 'date'])
+    				->condition('uid', $idUser, '=')
+    				->execute();
+
+    	$rows = [];
+    	$rows[] = [\Drupal::service('date.formatter')->format($registeredDate, 'custom', $format), (int) $weight, (int) $weight_t];
+
+    	//$rows[] = '18/05/1994';//[\Drupal::service('date.formatter')->format($registeredDate, $format = 'd/m/Y'), $weight];
+    	//kint(\Drupal::service('date.formatter'));
+    	if($progression) {
+
+    		foreach ($progression as $value) {
+    			$date = \Drupal::service('date.formatter')->format($value->date, 'custom', $format);
+    			$rows[] = [$date, (int) $value->weight, (int) $weight_t];
+    		}
+    	}
+
+        $page['#attached']['drupalSettings']['nutripal']['values']['progression'] =  $rows;
+    }
+    
+}

@@ -12,6 +12,7 @@ nutripal:
 
 user-progression:
   js:
+    https://www.gstatic.com/charts/loader.js: {type: external, minified: true}
     js/user-progression.js: {}
   dependencies:
     - core/jquery

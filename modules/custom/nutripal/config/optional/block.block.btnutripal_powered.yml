@@ -1,0 +1,22 @@
+uuid: ad6fbf0e-7af2-4f89-9670-060fcbcafe78
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - btnutripal
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: btnutripal_powered
+theme: btnutripal
+region: footer
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

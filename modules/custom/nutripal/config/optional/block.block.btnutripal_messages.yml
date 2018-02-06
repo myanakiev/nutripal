@@ -1,0 +1,22 @@
+uuid: b5192f1c-d1e3-483f-bb87-20e0d980fbf4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - btnutripal
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: btnutripal_messages
+theme: btnutripal
+region: highlighted
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

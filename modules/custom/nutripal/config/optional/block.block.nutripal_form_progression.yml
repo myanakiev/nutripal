@@ -1,0 +1,25 @@
+uuid: c0bc31cc-4613-4104-a10d-706fea3ae975
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - btnutripal
+id: nutripal_form_progression
+theme: btnutripal
+region: sidebar_first
+weight: 0
+provider: null
+plugin: nutripal_form_progression
+settings:
+  id: nutripal_form_progression
+  label: nutripal_form_progression
+  provider: nutripal
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /user/2/progression
+    negate: false
+    context_mapping: {  }

@@ -6,13 +6,13 @@ nutripal.example:
   requirements:
     _permission: 'access content'
 
-nutripal.settings_form:
-  path: '/admin/config/system/nutripal'
-  defaults:
-    _title: 'NutriPal settings'
-    _form: 'Drupal\nutripal\Form\SettingsForm'
-  requirements:
-    _permission: 'administer nutripal configuration'
+# nutripal.settings_form:
+#   path: '/admin/config/system/nutripal'
+#   defaults:
+#     _title: 'NutriPal settings'
+#     _form: 'Drupal\nutripal\Form\SettingsForm'
+#   requirements:
+#     _permission: 'administer nutripal configuration'
 
 nutripal.user_progression:
   path: '/user/{user}/progression'

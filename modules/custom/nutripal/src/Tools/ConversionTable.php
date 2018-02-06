@@ -9,6 +9,7 @@ namespace Drupal\nutripal\Tools;
  */
 class ConversionTable {
 
+    private static $conversions;
     private $conversionIDs;
     private $conversionMap;
 
@@ -25,15 +26,33 @@ class ConversionTable {
         $this->addConversionName(3, 'Degrés Celsius (°C)');
         $this->addConversionName(4, 'Degrés Fahrenheit (°F)');
         $this->addConversionName(5, 'Millilitres (ml)');
-        $this->addConversionName(6, 'Cuillères');
-        $this->addConversionName(7, 'Tasses');
+        $this->addConversionName(6, 'Tasses');
+        $this->addConversionName(7, 'Cuillères à thé/café');
+        $this->addConversionName(8, 'Cuillères à table/soupe');
 
-        //Conversions Vol
+        //Conversions Weigh
         $this->addConversionMap(0, 1, 0.035274);    //gr => oz
         $this->addConversionMap(0, 2, 0.00220462);  //gr => lb
+        $this->addConversionMap(1, 2, 0.0625);      //oz => lb
         
         //Conversions Temps
         $this->addConversionMap(3, 4, array(__CLASS__, 'getConversionCelsiusToFahrenheit'));
+        $this->addConversionMap(4, 3, array(__CLASS__, 'getConversionFahrenheitToCelsius'));
+
+        //Conversions Vol
+        $this->addConversionMap(6, 5, 250);         //ta => ml
+        $this->addConversionMap(7, 5, 5);           //cc => ml
+        $this->addConversionMap(8, 5, 15);          //ct => ml
+    }
+
+    public static function getConversionsDefault() {
+        if (isset(ConversionTable::$conversions))
+            return ConversionTable::$conversions;
+
+        ConversionTable::$conversions = new ConversionTable();
+        ConversionTable::$conversions->setConversionsDefault();
+
+        return ConversionTable::$conversions;
     }
 
     public function addConversionName($id, $name) {
@@ -47,13 +66,29 @@ class ConversionTable {
     public function getConversionID($name) {
         return ($key = array_search($name, $this->conversionIDs)) !== FALSE ? $key : NULL;
     }
-    
+
     public function getConversionIDs() {
         return array_keys($this->conversionIDs);
     }
 
     public function getConversionName($id) {
         return isset($this->conversionIDs[$id]) ? $this->conversionIDs[$id] : '---';
+    }
+
+    public function getConversionMapIDs($id_fr) {
+        $map = [];
+
+        foreach ($this->getConversionIDs() as $id_to) {
+            if ($id_fr == $id_to) {
+                continue;
+            }
+
+            if (isset($this->conversionMap[$id_fr][$id_to]) || isset($this->conversionMap[$id_to][$id_fr])) {
+                $map[] = $id_to;
+            }
+        }
+
+        return $map;
     }
 
     public function getConversionMap($id_fr, $id_to) {
@@ -74,15 +109,19 @@ class ConversionTable {
         if (is_numeric($conv)) {
             return $conv * $value;
         } elseif (is_callable($conv)) {
-            //return call_user_func(array($conv, $value));
+            //return call_user_func([$conv, $value]);
             return $conv($value);
         }
 
         return NULL;
     }
 
-    private static function getConversionCelsiusToFahrenheit($celsius) {
-        return ($celsius * 1.8) + 32;
+    private static function getConversionCelsiusToFahrenheit($deg) {
+        return ($deg * 1.8) + 32;
+    }
+
+    private static function getConversionFahrenheitToCelsius($deg) {
+        return ($deg - 32) / 1.8;
     }
 
 }

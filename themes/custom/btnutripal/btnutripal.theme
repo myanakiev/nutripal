@@ -8,9 +8,8 @@
  */
 
 function btnutripal_preprocess_node(&$variables) {
-        // Added $serving_calculator in if confition because null pointer Exception on line 15
-        // TypeError: Argument 1 passed to Drupal\block\BlockViewBuilder::view() must implement interface Drupal\Core\Entity\EntityInterface, null given, called in /opt/www/momchil.nutripal.webixper.com/themes/custom/btnutripal/btnutripal.theme on line 15 in Drupal\block\BlockViewBuilder->view() (line 70 of core/modules/block/src/BlockViewBuilder.php).
-	if(($variables['node']->getType() == 'aliments') && ($serving_calculator = \Drupal\block\Entity\Block::load('nutripalnutritionvaluescalculator'))){
+	if($variables['node']->getType() == 'aliments'){
+		$serving_calculator = \Drupal\block\Entity\Block::load('nutripalnutritionvaluescalculator');
 		$serving_calculator_view = \Drupal::entityTypeManager()
 		  ->getViewBuilder('block')
 		  ->view($serving_calculator);

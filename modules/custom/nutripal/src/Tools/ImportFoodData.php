@@ -120,10 +120,10 @@ class ImportFoodData {
         }
         if ($ids == 0) {
             $this->logMessage("$ing_name: not found in foodfacts!");
-            if(empty($content)) {
+            if(empty($content) || (count($content) < 100)) {
                 $this->logMessage("$ing_name: food not imported (empty content too)!");
-                return;
             }
+            return;
             $food_info = NULL;
         } else {
             $food_info = json_decode(Fatsecret::getFood($ids, $key, $secret), FALSE);

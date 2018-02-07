@@ -23,7 +23,6 @@ function nutripal_page_attachments_alter(array &$page) {
         $registeredDate = $user->getCreatedTime();
         $weight   = isset($user->field_weight)        ? $user->field_weight->getString()        : 0;
         $weight_t = isset($user->field_target_weight) ? $user->field_target_weight->getString() : 0;
-        $weight_t = 60;
 
         $progression = \Drupal::database()->select('nutripal_user_progression')
                 ->fields('nutripal_user_progression', ['uid', 'weight', 'date'])

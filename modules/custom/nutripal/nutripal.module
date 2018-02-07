@@ -29,19 +29,18 @@ function nutripal_page_attachments_alter(array &$page) {
                 ->condition('uid', $idUser, '=')
                 ->execute();
         
-        $format = 'd/m';
         $rows = [];
-        
-        $date = \Drupal::service('date.formatter')->format($registeredDate, 'custom', $format);
+
+        $date = $registeredDate;
         if($weight_t == 0) {
             $rows[] = [$date, (int) $weight];
         } else {
             $rows[] = [$date, (int) $weight, (int) $weight_t];
         }
-
+        
         if ($progression) {
             foreach ($progression as $value) {
-                $date = \Drupal::service('date.formatter')->format($value->date, 'custom', $format);
+                $date = $value->date;
                 $weight = $value->weight;
                 if($weight_t == 0) {
                     $rows[] = [$date, (int) $weight];
@@ -50,7 +49,7 @@ function nutripal_page_attachments_alter(array &$page) {
                 }
             }
         }
-
+       
         $page['#attached']['drupalSettings']['nutripal']['values']['progression'] = $rows;
     }
 }

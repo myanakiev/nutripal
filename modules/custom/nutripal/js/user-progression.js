@@ -9,21 +9,23 @@
             function drawChart() {
                 var rows = drupalSettings.nutripal.values.progression;
                 var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Date');
+                data.addColumn('date', 'Date');
                 data.addColumn('number', 'Weight');
                 if ("undefined" != typeof rows[0][2]) {
-                    data.addColumn('number', 'Target Weight')
+                    data.addColumn('number', 'Target Weight');
                 }
 
                 console.log(rows);
 
                 for (var i = 0; i < rows.length; i++) {
-                    //console.log(rows[i]);
-                    //var date = new Date(rows[i][0] * 1000);
-                    data.addRows([rows[i]]);
-                    /*data.addRows(
-                     [rows[i][0], rows[i][1]]
-                     )*/
+                    //data.addRows([rows[i]]);
+                    
+                    var dt = new Date(rows[i][0] * 1000);
+                    if ("undefined" != typeof rows[0][2]) {
+                        data.addRows([[dt, rows[i][1], rows[i][2]]]);
+                    } else {
+                        data.addRows([[dt, rows[i][1]]]);
+                    }
                 }
 
                 var options = {

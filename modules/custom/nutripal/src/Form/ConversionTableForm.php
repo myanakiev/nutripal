@@ -55,6 +55,7 @@ class ConversionTableForm extends FormBase {
             '#type' => 'number',
             '#title' => $this->t('Quantity'),
             '#default_value' => $vl_fr,
+            '#required' => TRUE,
         ];
 
         $convert_opts = [];

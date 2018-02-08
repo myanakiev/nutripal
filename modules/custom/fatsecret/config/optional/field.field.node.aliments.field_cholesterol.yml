@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_cholesterol
     - node.type.aliments
+_core:
+  default_config_hash: Tng4XLT7G05baGedcJZfQAuNyGi79bSscYilO9nMwFs
 id: node.aliments.field_cholesterol
 field_name: field_cholesterol
 entity_type: node

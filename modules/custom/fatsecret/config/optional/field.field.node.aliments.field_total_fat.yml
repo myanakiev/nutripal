@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_total_fat
     - node.type.aliments
+_core:
+  default_config_hash: lg8UjyxehWY2fqm-_i8PsdRa1n0V8QBbKUpb9ObClL8
 id: node.aliments.field_total_fat
 field_name: field_total_fat
 entity_type: node

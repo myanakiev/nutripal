@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_protein
     - node.type.aliments
+_core:
+  default_config_hash: kf4a0nIWDL60rvkqHcZMe5bUC7dny1kaB-xB6ddQc1U
 id: node.aliments.field_protein
 field_name: field_protein
 entity_type: node

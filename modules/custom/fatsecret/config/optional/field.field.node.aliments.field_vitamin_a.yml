@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_vitamin_a
     - node.type.aliments
+_core:
+  default_config_hash: 4rVmVl-eb2PZIAPNOhnC9BL8WMz0Xo-_KTSM4B9i9f0
 id: node.aliments.field_vitamin_a
 field_name: field_vitamin_a
 entity_type: node

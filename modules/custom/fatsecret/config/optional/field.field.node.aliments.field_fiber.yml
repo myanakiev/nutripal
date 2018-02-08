@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_fiber
     - node.type.aliments
+_core:
+  default_config_hash: mSdGLmvF2s2miMppJ5EizLTmjnCFWmE1XZELbqFT5uQ
 id: node.aliments.field_fiber
 field_name: field_fiber
 entity_type: node

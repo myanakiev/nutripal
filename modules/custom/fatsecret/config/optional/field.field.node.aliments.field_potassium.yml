@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_potassium
     - node.type.aliments
+_core:
+  default_config_hash: Q5zU5hnyzU3ofK6znNpoiG4Q4MkFYchCV5edGwboSjk
 id: node.aliments.field_potassium
 field_name: field_potassium
 entity_type: node

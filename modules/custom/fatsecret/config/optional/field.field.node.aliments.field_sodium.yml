@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_sodium
     - node.type.aliments
+_core:
+  default_config_hash: CVqVU04tW7dwou8g0EKNW_DjPiv9XJBf6-hPqVyhPaE
 id: node.aliments.field_sodium
 field_name: field_sodium
 entity_type: node

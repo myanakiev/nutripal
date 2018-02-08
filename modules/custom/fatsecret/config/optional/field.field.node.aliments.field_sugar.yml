@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_sugar
     - node.type.aliments
+_core:
+  default_config_hash: Lv7gf5ftLAKbXhTohtEarkRnsYRLZCfW2Eoz2cnxwAs
 id: node.aliments.field_sugar
 field_name: field_sugar
 entity_type: node

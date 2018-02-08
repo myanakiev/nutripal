@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_carbohydrate
     - node.type.aliments
+_core:
+  default_config_hash: vPrfVsLi7q3T82yywCmDJR54UDf3K3v5IMgtw2OCThA
 id: node.aliments.field_carbohydrate
 field_name: field_carbohydrate
 entity_type: node

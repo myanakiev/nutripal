@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - user
+_core:
+  default_config_hash: flxmF59WMPeYBQm1Yo6hURee5oUsSFDFUgZSZdHVXJ0
 id: user.field_target_weight
 field_name: field_target_weight
 entity_type: user

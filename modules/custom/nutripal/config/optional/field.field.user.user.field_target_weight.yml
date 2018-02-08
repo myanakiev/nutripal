@@ -6,11 +6,13 @@ dependencies:
     - field.storage.user.field_target_weight
   module:
     - user
+_core:
+  default_config_hash: S_Y0mb50-aCoL_N7I1ICdjkAtVUB-HITI3b4taVcsEw
 id: user.user.field_target_weight
 field_name: field_target_weight
 entity_type: user
 bundle: user
-label: target_weight
+label: 'Weight (target)'
 description: ''
 required: false
 translatable: false

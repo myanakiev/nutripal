@@ -8,6 +8,7 @@ dependencies:
     - field.field.user.user.field_height
     - field.field.user.user.field_last_name
     - field.field.user.user.field_sports_level
+    - field.field.user.user.field_target_weight
     - field.field.user.user.field_weight
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -43,7 +44,7 @@ content:
     type: string_textfield
     region: content
   field_height:
-    weight: 6
+    weight: 5
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -58,13 +59,20 @@ content:
     type: string_textfield
     region: content
   field_sports_level:
-    weight: 7
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_target_weight:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_weight:
-    weight: 5
+    weight: 6
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -72,7 +80,7 @@ content:
     region: content
   path:
     type: path
-    weight: 30
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

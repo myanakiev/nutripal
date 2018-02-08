@@ -53,3 +53,114 @@ function nutripal_page_attachments_alter(array &$page) {
         $page['#attached']['drupalSettings']['nutripal']['values']['progression'] = $rows;
     }
 }
+/**
+ * Implements nutripal_views_data().
+ */
+
+function nutripal_views_data(){
+    $data = array();
+    //kint('test');
+    $data['nutripal_user_meals'] = array();
+    $data['nutripal_user_meals']['table'] = array();
+
+    $data['nutripal_user_meals']['table']['group'] = t('nutripal_user_meals');
+    $data['nutripal_user_meals']['table']['provider'] = 'nutripal';
+    $data['nutripal_user_meals']['table']['base'] = array(
+        'field' => 'pid',
+        'title' => t('Nutripal user meals'),
+        'help' => t('Nutripal user meals contains information about user meals and can be related to aliments'),
+        'weight' => -10,
+    );
+    $data['nutripal_user_meals']['uid'] = array(
+     'title' => t('Meal User ID'),
+     'help' => t('Meal User ID.'),
+     'field' => array(
+       'id' => 'numeric',
+     ),
+     'sort' => array(
+       'id' => 'standard',
+     ),
+     'filter' => array(
+       'id' => 'numeric',
+     ),
+     'argument' => array(
+       'id' => 'numeric',
+     ),
+    );
+    $data['nutripal_user_meals']['aid'] = array(
+     'title' => t('aliment ID'),
+     'help' => t('aliment  ID.'),
+     'field' => array(
+       'id' => 'numeric',
+     ),
+     'sort' => array(
+       'id' => 'standard',
+     ),
+     'filter' => array(
+       'id' => 'numeric',
+     ),
+     'argument' => array(
+       'id' => 'numeric',
+     ),
+     'relationship' => array(
+        // Views name of the table to join to for the relationship.
+        'base' => 'node_field_data',
+        // Database field name in the other table to join on.
+        'base field' => 'nid',
+        // ID of relationship handler plugin to use.
+        'id' => 'standard',
+        // Default label for relationship in the UI.
+        'label' => t('Aliments content'),
+      ),
+    );
+    $data['nutripal_user_meals']['meal_name'] = array(
+    'title' => t('Meal name'),
+    'help' => t('Meal name.'),
+    'field' => array(
+      // ID of field handler plugin to use.
+      'id' => 'standard',
+    ),
+    'sort' => array(
+      // ID of sort handler plugin to use.
+      'id' => 'standard',
+    ),
+    'filter' => array(
+      // ID of filter handler plugin to use.
+      'id' => 'string',
+    ),
+    'argument' => array(
+      // ID of argument handler plugin to use.
+      'id' => 'string',
+    ),
+    );
+    $data['nutripal_user_meals']['serving'] = array(
+    'title' => t('Serving for an aliment'),
+    'help' => t('Serving for an aliment'),
+    'field' => array(
+      'id' => 'numeric',
+    ),
+    'sort' => array(
+      'id' => 'standard',
+    ),
+    'filter' => array(
+      'id' => 'numeric',
+    ),
+    'argument' => array(
+      'id' => 'numeric',
+    ),
+    );
+    $data['nutripal_user_meals']['date'] = array(
+    'title' => t('Date'),
+    'help' => t('Just a timestamp field.'),
+    'field' => array(
+      'id' => 'date',
+    ),
+    'sort' => array(
+      'id' => 'date',
+    ),
+    'filter' => array(
+      'id' => 'date',
+    ),
+    );
+    return $data;
+}

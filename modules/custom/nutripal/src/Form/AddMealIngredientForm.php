@@ -56,13 +56,13 @@ class AddMealIngredientForm extends FormBase{
 		$node = \Drupal::routeMatch()->getParameter('node');
 		if (is_object($node) && $node != null && $node->getType() == 'aliments') {
 			$uid = \Drupal::currentUser()->id();
-
+			$date = strtotime(date('Y-m-d',time()));// i know it's ugly but i need it...
 			$query = \Drupal::database()->insert('nutripal_user_meals')
 			->fields([
 				'aid' => $node->id(),
 				'uid' => $uid,
 				'meal_name' => $form_state->getValue('meal'),
-				'date' => time(),
+				'date' => $date,
 				'serving' => $form_state->getValue('serving')
 			])
 			->execute();

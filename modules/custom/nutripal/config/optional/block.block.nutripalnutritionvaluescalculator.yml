@@ -1,0 +1,28 @@
+uuid: a6c7884c-ea08-47b6-938b-93dd034e73be
+langcode: en
+status: false
+dependencies:
+  module:
+    - node
+    - nutripal
+  theme:
+    - btnutripal
+id: nutripalnutritionvaluescalculator
+theme: btnutripal
+region: content
+weight: 0
+provider: null
+plugin: nutripal_nutrition_values_calculator
+settings:
+  id: nutripal_nutrition_values_calculator
+  label: 'Nutripal Nutrition values calculator'
+  provider: nutripal
+  label_display: '0'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      aliments: aliments
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

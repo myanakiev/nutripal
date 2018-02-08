@@ -1,0 +1,28 @@
+uuid: d7250092-1b09-4c18-918b-b19c9b976286
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - nutripal
+  theme:
+    - btnutripal
+id: addmealingredientform
+theme: btnutripal
+region: content
+weight: 0
+provider: null
+plugin: add_meal_ingredient
+settings:
+  id: add_meal_ingredient
+  label: 'Add meal ingredient form'
+  provider: nutripal
+  label_display: '0'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      aliments: aliments
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

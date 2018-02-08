@@ -20,15 +20,15 @@ class ConversionTable {
 
     public function setConversionsDefault() {
         //Units
-        $this->addConversionName(0, 'Grammes (g)');
-        $this->addConversionName(1, 'Onces (oz)');
-        $this->addConversionName(2, 'Livres (lb)');
-        $this->addConversionName(3, 'Degrés Celsius (°C)');
-        $this->addConversionName(4, 'Degrés Fahrenheit (°F)');
-        $this->addConversionName(5, 'Millilitres (ml)');
-        $this->addConversionName(6, 'Tasses');
-        $this->addConversionName(7, 'Cuillères à thé/café');
-        $this->addConversionName(8, 'Cuillères à table/soupe');
+        $this->addConversionName(0, 'Grams (g)');
+        $this->addConversionName(1, 'Ounces (oz)');
+        $this->addConversionName(2, 'Pounds (lb)');
+        $this->addConversionName(3, 'Degrees Celsius (°C)');
+        $this->addConversionName(4, 'Degrees Fahrenheit (°F)');
+        $this->addConversionName(5, 'Milliliters (ml)');
+        $this->addConversionName(6, 'Mugs');
+        $this->addConversionName(7, 'Teaspoons/Coffee spoons');
+        $this->addConversionName(8, 'Tablespoons/Soup spoons');
 
         //Conversions Weigh
         $this->addConversionMap(0, 1, 0.035274);    //gr => oz

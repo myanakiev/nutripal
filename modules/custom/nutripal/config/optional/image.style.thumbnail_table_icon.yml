@@ -1,0 +1,14 @@
+uuid: 8170345f-d764-4f0c-941c-1c4f3b56fbe8
+langcode: en
+status: true
+dependencies: {  }
+name: thumbnail_table_icon
+label: 'Thumbnail table icon (50×50)'
+effects:
+  24f53aaa-ca7d-4645-a10c-8df53c0e5640:
+    uuid: 24f53aaa-ca7d-4645-a10c-8df53c0e5640
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 50
+      height: 50

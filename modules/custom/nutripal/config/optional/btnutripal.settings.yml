@@ -12,9 +12,10 @@ features:
   favicon: true
   node_user_picture: true
 logo:
-  path: ''
+  path: 'public://Sans titre - 1 v2_2.png'
   url: ''
-  use_default: true
+  use_default: false
 schemas:
   bootstrap: 8000
   btnutripal: 8000
+table: ''

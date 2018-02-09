@@ -9673,3 +9673,64 @@ div#header-img {
   top: -90px;
   z-index: -1;
 }
+
+/* line 57, ../scss/style.scss */
+.form_container .user-register-form {
+  border-radius: 10px;
+  padding: 100px 250px;
+  background-image: url(/themes/custom/btnutripal/images/background_form1.png);
+  border: 1px green solid;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* line 66, ../scss/style.scss */
+form#user-login-form {
+  border: 1px green solid;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 100px;
+  background-image: url(/themes/custom/btnutripal/images/thanksgiving-autumn-background-variété-de-…oranges-sur-le-fond-en-bois-foncé-avec-l-espace-libre-pour-le-79717551.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* line 77, ../scss/style.scss */
+.path-user ul.tabs--primary.nav.nav-tabs {
+  border-bottom: none;
+}
+
+/* line 81, ../scss/style.scss */
+.main-container.container.js-quickedit-main-content {
+  background: rgba(255, 255, 255, 0.7);
+  padding-bottom: 100px;
+}
+
+/* line 86, ../scss/style.scss */
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* line 91, ../scss/style.scss */
+body {
+  background-image: url(/themes/custom/btnutripal/images/53456_1_p1.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+}
+
+/* line 98, ../scss/style.scss */
+button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
+  background: -webkit-gradient(linear, left top, left bottom, from(#137714), to(#3CA640));
+  background: linear-gradient(#137714, #3CA640);
+}
+
+/* line 102, ../scss/style.scss */
+.btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
+  color: white;
+  border-color: #8c8c8c;
+  background: -webkit-gradient(linear, left top, left bottom, from(#137714), to(#3CA640));
+  background: linear-gradient(#137714, #3CA640);
+}

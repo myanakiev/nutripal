@@ -24,7 +24,8 @@
 .aliments .nutrition-values h3{
 	margin: 0 0 10px 0;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 2.5em;
+    text-align: center;
 }
 
 
@@ -53,3 +54,73 @@
 .aliments .form-required:after {
     background-image:none;
 }
+
+.aliments .nutrition-values dt {
+	font-weight: normal;
+    float: left;
+    width: 140px;
+    clear: left;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 15px;
+  }
+
+  .aliments .nutrition-values dd {
+  	margin-left: 200px;
+  }
+
+  .aliments .nutrition-values dt.bold{
+  	font-weight: bold;
+  	font-size: 1.3em;
+    margin-left: 0px;
+  }
+  .aliments .nutrition-values dd.bold{
+  	font-weight: bold;
+  	font-size: 1.3em;
+  }
+
+  #edit-serving{
+  	float:left;
+  	width: 50%;
+  }
+
+  #edit-calculate{
+  	cursor: pointer;
+    float: left;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: url(/themes/custom/btnutripal/images/icon_check_green.svg) no-repeat center center;
+    background-size: 100%;
+    margin-left:10px;
+    transition: 0.3s ease;
+
+  }
+  #edit-calculate:hover{
+  	transform: scale(1.5, 1.5);
+  };
+
+  #nutrition-values-calculator label.control-label{
+  	color: white;
+  }
+
+
+
+  /*add meal form*/
+
+  #block-addmealingredientform{
+  	border: solid #337ab7;
+    width: 50%;
+    border-radius: 2%;
+    padding: 10px;
+  }
+
+  .aliments #edit-serving--2{
+  	float:left;
+  }
+
+  .aliments #edit-add{
+  	float:left;
+  }

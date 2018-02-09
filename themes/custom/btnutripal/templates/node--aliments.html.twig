@@ -98,51 +98,54 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('content','row') }}>
-    <div class="col-sm-8">
+    <div class="col-sm-7">
       {{ content.field_picture }}
       {{ content.body }}
+      {{ add_meal }}
     </div>
     
-    <div class="nutrition-values col-sm-4">
-      <h2 class = "nutrition-header">
-        <span>{% trans %}Nutrional Values <br> for{% endtrans %} </span>
-        <span>{{ serving }}</span>
-      </h2>
-      <div class ="values-details">
-        <h3>{{content.field_calories.0 }} kcal</h3>
-        <dl class="dl-horizontal">
-          <dt>{% trans %}Carbohydrate:{% endtrans %}</dt><dd> {{content.field_carbohydrate.0}} g</dd>
-          <dt>{% trans %}Sugar:{% endtrans %}</dt><dd> {{content.field_sugar.0}} g</dd>
-          <dt>{% trans %}Fiber:{% endtrans %}</dt><dd> {{content.field_fiber.0}} g</dd>
-          <dt>{% trans %}Protein:{% endtrans %}</dt><dd> {{content.field_protein.0}} g</dd>
-          <dt>{% trans %}Total fat:{% endtrans %}</dt><dd> {{content.field_total_fat.0}} g</dd>
-          <dt>{% trans %}Saturated fat:{% endtrans %}</dt><dd> {{content.field_saturated_fat.0}} g</dd>
-          <dt>{% trans %}Monounsaturated fat:{% endtrans %}</dt><dd> {{content.field_monounsaturated_fat.0}} g</dd>
-          <dt>{% trans %}Polyunsaturated fat:{% endtrans %}</dt><dd> {{content.field_polyunsaturated_fat.0}} g</dd>
-          <dt>{% trans %}Cholesterol:{% endtrans %}</dt><dd> {{content.field_cholesterol.0}} mg</dd>
-          <dt>{% trans %}Vitamins: {% endtrans %}</dt><dd></dd>
-          {% if content.field_vitamin_a.0 %}
-            <dt>{% trans %}Vitamin a:{% endtrans %}</dt><dd> {{content.field_vitamin_a.0}} %</dd>
-          {% endif %}
-          {% if content.field_vitamin_b.0 %}
-            <dt>{% trans %}Vitamin b:{% endtrans %}</dt><dd> {{content.field_vitamin_b.0}} %</dd>
-          {% endif %}
-          {% if content.field_vitamin_c.0 %}
-            <dt>{% trans %}Vitamin c:{% endtrans %}</dt><dd> {{content.field_vitamin_c.0}} %</dd>
-          {% endif %}
-          {% if content.field_vitamin_d.0 %}
-            <dt>{% trans %}Vitamin d:{% endtrans %}</dt><dd> {{content.field_vitamin_d.0.0}} %</dd>
-          {% endif %}
-          <dt>{% trans %}Micronutrients:{% endtrans %}</dt><dd></dd>
-          <dt>{% trans %}Calcium:{% endtrans %}</dt><dd> {{content.field_calcium.0}} %</dd>
-          <dt>{% trans %}Iron:{% endtrans %}</dt><dd> {{content.field_iron.0}} %</dd>
-          <dt>{% trans %}Potassium:{% endtrans %}</dt><dd> {{content.field_potassium.0}} mg</dd>
-          <dt>{% trans %}Sodium:{% endtrans %}</dt><dd> {{content.field_sodium.0}} mg</dd>
-        </dl>
+    <div class="col-sm-5">
+      <div class="nutrition-values">
+        <h2 class = "nutrition-header">
+          <span>{% trans %}Nutrional Values <br> for{% endtrans %} </span>
+          <span>{{ serving }}</span>
+        </h2>
+        <div class ="values-details">
+          <h3>{{content.field_calories.0 }} kcal</h3>
+          <dl class="dl-horizontal">
+            <dt class= "bold">{% trans %}Carbohydrate:{% endtrans %}</dt><dd class= "bold"> {{content.field_carbohydrate.0}} g</dd>
+            <dt>{% trans %}Sugar:{% endtrans %}</dt><dd> {{content.field_sugar.0}} g</dd>
+            <dt>{% trans %}Fiber:{% endtrans %}</dt><dd> {{content.field_fiber.0}} g</dd>
+            <dt class= "bold">{% trans %}Protein:{% endtrans %}</dt><dd class= "bold"> {{content.field_protein.0}} g</dd>
+            <dt class= "bold">{% trans %}Total fat:{% endtrans %}</dt><dd class= "bold"> {{content.field_total_fat.0}} g</dd>
+            <dt>{% trans %}Saturated fat:{% endtrans %}</dt><dd> {{content.field_saturated_fat.0}} g</dd>
+            <dt>{% trans %}Monounsaturated fat:{% endtrans %}</dt><dd> {{content.field_monounsaturated_fat.0}} g</dd>
+            <dt>{% trans %}Polyunsaturated fat:{% endtrans %}</dt><dd> {{content.field_polyunsaturated_fat.0}} g</dd>
+            <dt>{% trans %}Cholesterol:{% endtrans %}</dt><dd> {{content.field_cholesterol.0}} mg</dd>
+            <dt class= "bold">{% trans %}Vitamins: {% endtrans %}</dt><dd></dd>
+            {% if content.field_vitamin_a.0 %}
+              <dt>{% trans %}Vitamin a:{% endtrans %}</dt><dd> {{content.field_vitamin_a.0}} %</dd>
+            {% endif %}
+            {% if content.field_vitamin_b.0 %}
+              <dt>{% trans %}Vitamin b:{% endtrans %}</dt><dd> {{content.field_vitamin_b.0}} %</dd>
+            {% endif %}
+            {% if content.field_vitamin_c.0 %}
+              <dt>{% trans %}Vitamin c:{% endtrans %}</dt><dd> {{content.field_vitamin_c.0}} %</dd>
+            {% endif %}
+            {% if content.field_vitamin_d.0 %}
+              <dt>{% trans %}Vitamin d:{% endtrans %}</dt><dd> {{content.field_vitamin_d.0.0}} %</dd>
+            {% endif %}
+            <dt class= "bold">{% trans %}Micronutrients:{% endtrans %}</dt><dd class= "bold"></dd>
+            <dt>{% trans %}Calcium:{% endtrans %}</dt><dd> {{content.field_calcium.0}} %</dd>
+            <dt>{% trans %}Iron:{% endtrans %}</dt><dd> {{content.field_iron.0}} %</dd>
+            <dt>{% trans %}Potassium:{% endtrans %}</dt><dd> {{content.field_potassium.0}} mg</dd>
+            <dt>{% trans %}Sodium:{% endtrans %}</dt><dd> {{content.field_sodium.0}} mg</dd>
+          </dl>
+        </div>
+        <div id= "nutrition-donut" >
+        </div>
+        {{ serving_calculator }}
       </div>
-      <div id= "nutrition-donut" >
-      </div>
-      {{ serving_calculator }}
     </div>
   </div>
 

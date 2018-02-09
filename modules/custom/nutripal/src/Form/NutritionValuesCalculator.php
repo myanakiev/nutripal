@@ -26,7 +26,7 @@ class NutritionValuesCalculator extends FormBase{
 
 		$form['calculate'] = [
 				'#type' => 'submit',
-				'#value' => $this->t('Calculate'),
+				'#value' => '',
 			];
 		return $form;
 	}

@@ -9,12 +9,21 @@
 
 function btnutripal_preprocess_node(&$variables) {
 	if($variables['node']->getType() == 'aliments'){
-		$serving_calculator = \Drupal\block\Entity\Block::load('nutripalnutritionvaluescalculator');
-		$serving_calculator_view = \Drupal::entityTypeManager()
-		  ->getViewBuilder('block')
-		  ->view($serving_calculator);
-		if ($serving_calculator_view) {
-		    $variables['serving_calculator'] = $serving_calculator_view;
+		if($serving_calculator = \Drupal\block\Entity\Block::load('nutripalnutritionvaluescalculator')){
+			$serving_calculator_view = \Drupal::entityTypeManager()
+			  ->getViewBuilder('block')
+			  ->view($serving_calculator);
+			if ($serving_calculator_view) {
+			    $variables['serving_calculator'] = $serving_calculator_view;
+			}
+		}
+		if($add_meal = \Drupal\block\Entity\Block::load('addmealingredientform')){
+			$add_meal_view = \Drupal::entityTypeManager()
+			  ->getViewBuilder('block')
+			  ->view($add_meal);
+			if ($add_meal_view) {
+			    $variables['add_meal'] = $add_meal_view;
+			}
 		}
 
 		$serving = \Drupal::request()->query->get('serving');

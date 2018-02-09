@@ -32,13 +32,13 @@ class AddMealIngredientForm extends FormBase{
 
 		$form['serving'] = [
 			'#type' => 'number',
-			'#title' => $this->t('serving'),
+			'#title' => $this->t('Serving (g)'),
 			'#required' => TRUE,
 		];
 
 		$form['add'] = [
 				'#type' => 'submit',
-				'#value' => $this->t('add ingredients'),
+				'#value' => $this->t('Add aliments'),
 			];
 		return $form;
 	}

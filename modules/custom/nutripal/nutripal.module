@@ -164,3 +164,14 @@ function nutripal_views_data(){
     );
     return $data;
 }
+
+/**
+ * Implements nutripal_theme().
+ */
+function nutripal_theme(){
+    return [
+    'nutrition_values_calculator' => [
+      'render element' => 'form',
+    ],
+  ];
+}

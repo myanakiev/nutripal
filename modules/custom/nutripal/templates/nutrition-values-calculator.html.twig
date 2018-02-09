@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<form{{ attributes }}>
+  <div class= "row">
+	  <div class="col-lg-7">
+	  	<h4>{{ form.serving['#title'] }}</h4>
+	    <div class="input-group">
+	      {{ form.serving|without('#title') }}
+	      <span class="input-group-btn">
+	        {{ form.calculate }}
+	      </span>
+	    </div><!-- /input-group -->
+	  </div><!-- /.col-lg-6 -->
+  </div>
+   {{ form.form_id }}
+   {{ form.form_token }}
+   {{ form.form_build_id }}
+</form>

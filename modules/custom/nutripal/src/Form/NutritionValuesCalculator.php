@@ -16,6 +16,7 @@ class NutritionValuesCalculator extends FormBase{
 	* {@inheritdoc}.
 	*/
 	public function buildForm(array $form, FormStateInterface $form_state){
+		$form['#theme'] = 'nutrition_values_calculator';
 
 		$form['serving'] = [
 			'#type' => 'number',
@@ -26,7 +27,7 @@ class NutritionValuesCalculator extends FormBase{
 
 		$form['calculate'] = [
 				'#type' => 'submit',
-				'#value' => '',
+				'#value' => 'Go',
 			];
 		return $form;
 	}

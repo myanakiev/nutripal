@@ -28,3 +28,13 @@ nutripal_aliments:
     js/donut.js: {}
   dependencies:
     - core/jquery
+
+nutripal-article:
+  css:
+    theme:
+      css/article.css: {}
+
+nutripal-front:
+  css:
+    theme:
+      css/front_page.css: {}

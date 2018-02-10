@@ -1,6 +1,6 @@
 uuid: d7250092-1b09-4c18-918b-b19c9b976286
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - node
@@ -10,7 +10,7 @@ dependencies:
 id: addmealingredientform
 theme: btnutripal
 region: content
-weight: 0
+weight: -1
 provider: null
 plugin: add_meal_ingredient
 settings:

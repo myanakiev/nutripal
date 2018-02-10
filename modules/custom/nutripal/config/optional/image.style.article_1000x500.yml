@@ -1,0 +1,17 @@
+uuid: 03553784-d863-47c7-b394-3ddc11d326fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.article
+  module:
+    - crop
+name: article_1000x500
+label: 'article 1000x500'
+effects:
+  2e336ef2-aa41-4d44-befd-081be1570e3a:
+    uuid: 2e336ef2-aa41-4d44-befd-081be1570e3a
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: article

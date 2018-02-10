@@ -1,4 +1,4 @@
-uuid: 199127fb-29ef-4a6d-b3bd-65af4c4c2af9
+uuid: aa56a504-5d3b-4ee6-9fe3-d01f1f7c57d0
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ _core:
 id: btnutripal_local_tasks
 theme: btnutripal
 region: content
-weight: -7
+weight: -5
 provider: null
 plugin: local_tasks_block
 settings:

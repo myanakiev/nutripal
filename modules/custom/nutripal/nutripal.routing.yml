@@ -30,3 +30,11 @@ user.progression_form:
     _form: '\Drupal\nutripal\Form\UserProgressionForm'
   requirements:
     _access: 'TRUE'
+
+nutripal.user_meals:
+  path: '/user/{user}/meals'
+  defaults:
+    _title: 'user meals'
+    _controller: '\Drupal\nutripal\Controller\NutripalUserMealsController::content'
+  requirements:
+    _access: 'TRUE'

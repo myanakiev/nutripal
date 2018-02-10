@@ -2,3 +2,8 @@ nutripal.progression:
   route_name: nutripal.user_progression
   base_route: entity.user.canonical
   title: 'Progression'
+
+nutripal.user.meals:
+  route_name: nutripal.user_meals
+  base_route: entity.user.canonical
+  title: 'Meals'

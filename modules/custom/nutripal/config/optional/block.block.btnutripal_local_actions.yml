@@ -1,4 +1,4 @@
-uuid: 4cc50c2c-10eb-4541-b7ce-4172e66683f8
+uuid: 95e193b5-5c3a-4b5d-91cd-235bbc9b0ce6
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ _core:
 id: btnutripal_local_actions
 theme: btnutripal
 region: content
-weight: -7
+weight: -6
 provider: null
 plugin: local_actions_block
 settings:

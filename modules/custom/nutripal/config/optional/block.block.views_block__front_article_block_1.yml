@@ -1,0 +1,30 @@
+uuid: dc232841-54bc-42e2-8d3f-0c4006e0b691
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.front_article
+  module:
+    - system
+    - views
+  theme:
+    - btnutripal
+id: views_block__front_article_block_1
+theme: btnutripal
+region: content
+weight: -4
+provider: null
+plugin: 'views_block:front_article-block_1'
+settings:
+  id: 'views_block:front_article-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

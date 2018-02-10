@@ -1,0 +1,13 @@
+.page-node-type-article h1:first-child{
+    display:none;
+}
+
+.page-node-type-article .field--name-field-tags .field--item{
+    display:inline-block;
+    margin-right:15px;
+}
+
+.field--name-field-tags{
+    margin-top:10px;
+    font-size:1.5em;
+}

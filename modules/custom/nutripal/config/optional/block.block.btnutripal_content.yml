@@ -1,4 +1,4 @@
-uuid: f41c5a9f-6285-47a2-8390-77a8e2479943
+uuid: 4adb2cc4-6d52-43fb-adf6-5f3ffc7021f9
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ _core:
 id: btnutripal_content
 theme: btnutripal
 region: content
-weight: 0
+weight: -2
 provider: null
 plugin: system_main_block
 settings:

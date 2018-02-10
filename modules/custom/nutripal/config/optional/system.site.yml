@@ -1,0 +1,14 @@
+uuid: a4b24684-e729-4e92-8f73-6201e1aa19d7
+name: nutripal
+mail: guillaume.pauli99+poei@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/121
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

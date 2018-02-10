@@ -54,6 +54,10 @@ function btnutripal_preprocess_node(&$variables) {
 }
 
 function btnutripal_page_attachments_alter(array &$page) {
+	if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $page['#attached']['library'][] = 'btnutripal/nutripal-front';
+  }
+
 	
 	$node = \Drupal::routeMatch()->getParameter('node');
 	if (is_object($node) && $node != null && $node->getType() == 'aliments') {

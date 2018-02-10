@@ -1,0 +1,10 @@
+uuid: b6288148-d3fe-48d7-931a-5eef641ea6c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.front_article
+label: 'Front article'
+targetEntityType: node
+cache: true

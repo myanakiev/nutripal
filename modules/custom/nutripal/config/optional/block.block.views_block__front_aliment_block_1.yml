@@ -1,0 +1,30 @@
+uuid: d4511bfb-6d2c-4360-aa7a-09d884ffb3f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.front_aliment
+  module:
+    - system
+    - views
+  theme:
+    - btnutripal
+id: views_block__front_aliment_block_1
+theme: btnutripal
+region: content
+weight: -3
+provider: null
+plugin: 'views_block:front_aliment-block_1'
+settings:
+  id: 'views_block:front_aliment-block_1'
+  label: 'Check our selection of seasonal aliments'
+  provider: views
+  label_display: visible
+  views_label: 'Check our selection of seasonal aliments'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

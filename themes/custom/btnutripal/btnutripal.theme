@@ -53,7 +53,7 @@ function btnutripal_preprocess_node(&$variables) {
 }
 
 function btnutripal_page_attachments_alter(array &$page) {
-<<<<<<< HEAD
+
 	if (\Drupal::service('path.matcher')->isFrontPage()) {
     $page['#attached']['library'][] = 'btnutripal/nutripal-front';
   }
@@ -61,8 +61,6 @@ function btnutripal_page_attachments_alter(array &$page) {
 	
 	$node = \Drupal::routeMatch()->getParameter('node');
 	if (is_object($node) && $node != null && $node->getType() == 'aliments') {
-=======
->>>>>>> a8fe2e6f9f406a5ee2c3b5648e254c0a1067734e
 
     $node = \Drupal::routeMatch()->getParameter('node');
     if (is_object($node) && $node != null && $node->getType() == 'aliments') {
@@ -75,6 +73,7 @@ function btnutripal_page_attachments_alter(array &$page) {
         $page['#attached']['drupalSettings']['nutripal']['values']['protein'] = $protein;
         $page['#attached']['drupalSettings']['nutripal']['values']['carbohydrate'] = $carbohydrate;
     }
+	}
 }
 
 function btnutripal_theme_suggestions_form_alter(array &$suggestions, array $variables) {

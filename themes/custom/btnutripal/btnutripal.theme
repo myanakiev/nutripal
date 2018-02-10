@@ -6,69 +6,84 @@
  *
  * Place your custom PHP code in this file.
  */
-
 function btnutripal_preprocess_node(&$variables) {
-	if($variables['node']->getType() == 'aliments'){
-		if($serving_calculator = \Drupal\block\Entity\Block::load('nutripalnutritionvaluescalculator')){
-			$serving_calculator_view = \Drupal::entityTypeManager()
-			  ->getViewBuilder('block')
-			  ->view($serving_calculator);
-			if ($serving_calculator_view) {
-			    $variables['serving_calculator'] = $serving_calculator_view;
-			}
-		}
-		if($add_meal = \Drupal\block\Entity\Block::load('addmealingredientform')){
-			$add_meal_view = \Drupal::entityTypeManager()
-			  ->getViewBuilder('block')
-			  ->view($add_meal);
-			if ($add_meal_view) {
-			    $variables['add_meal'] = $add_meal_view;
-			}
-		}
+    if ($variables['node']->getType() == 'aliments') {
+        if ($serving_calculator = \Drupal\block\Entity\Block::load('nutripalnutritionvaluescalculator')) {
+            $serving_calculator_view = \Drupal::entityTypeManager()
+                    ->getViewBuilder('block')
+                    ->view($serving_calculator);
+            if ($serving_calculator_view) {
+                $variables['serving_calculator'] = $serving_calculator_view;
+            }
+        }
+        if ($add_meal = \Drupal\block\Entity\Block::load('addmealingredientform')) {
+            $add_meal_view = \Drupal::entityTypeManager()
+                    ->getViewBuilder('block')
+                    ->view($add_meal);
+            if ($add_meal_view) {
+                $variables['add_meal'] = $add_meal_view;
+            }
+        }
 
-		$serving = \Drupal::request()->query->get('serving');
-		$variables['serving'] = "100 g";
-		$variables['#cache']['max-age'] = 1;
-		if(isset($serving)){
-			$variables['serving'] = $serving." g";
-			$variables['content']['field_calories'][0]['#markup'] = round((floatVal($variables['content']['field_calories'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_calcium'][0]['#markup'] = round((floatVal($variables['content']['field_calcium'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_carbohydrate'][0]['#markup'] = round((floatVal($variables['content']['field_carbohydrate'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_cholesterol'][0]['#markup'] = round((floatVal($variables['content']['field_cholesterol'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_total_fat'][0]['#markup'] = round((floatVal($variables['content']['field_total_fat'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_fiber'][0]['#markup'] = round((floatVal($variables['content']['field_fiber'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_iron'][0]['#markup'] = round((floatVal($variables['content']['field_iron'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_monounsaturated_fat'][0]['#markup'] = round((floatVal($variables['content']['field_monounsaturated_fat'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_polyunsaturated_fat'][0]['#markup'] = round((floatVal($variables['content']['field_polyunsaturated_fat'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_potassium'][0]['#markup'] = round((floatVal($variables['content']['field_potassium'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_protein'][0]['#markup'] = round((floatVal($variables['content']['field_protein'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_saturated_fat'][0]['#markup'] = round((floatVal($variables['content']['field_saturated_fat'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_sodium'][0]['#markup'] = round((floatVal($variables['content']['field_sodium'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_sugar'][0]['#markup'] = round((floatVal($variables['content']['field_sugar'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_vitamin_a'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_a'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_vitamin_b'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_b'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_vitamin_c'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_c'][0]['#markup'])/100)*floatVal($serving), 2);
-			$variables['content']['field_vitamin_d'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_d'][0]['#markup'])/100)*floatVal($serving), 2);
-		}
-	}
+        $serving = \Drupal::request()->query->get('serving');
+        $variables['serving'] = "100 g";
+        $variables['#cache']['max-age'] = 1;
+        if (isset($serving)) {
+            $variables['serving'] = $serving . " g";
+            $variables['content']['field_calories'][0]['#markup'] = round((floatVal($variables['content']['field_calories'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_calcium'][0]['#markup'] = round((floatVal($variables['content']['field_calcium'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_carbohydrate'][0]['#markup'] = round((floatVal($variables['content']['field_carbohydrate'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_cholesterol'][0]['#markup'] = round((floatVal($variables['content']['field_cholesterol'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_total_fat'][0]['#markup'] = round((floatVal($variables['content']['field_total_fat'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_fiber'][0]['#markup'] = round((floatVal($variables['content']['field_fiber'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_iron'][0]['#markup'] = round((floatVal($variables['content']['field_iron'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_monounsaturated_fat'][0]['#markup'] = round((floatVal($variables['content']['field_monounsaturated_fat'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_polyunsaturated_fat'][0]['#markup'] = round((floatVal($variables['content']['field_polyunsaturated_fat'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_potassium'][0]['#markup'] = round((floatVal($variables['content']['field_potassium'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_protein'][0]['#markup'] = round((floatVal($variables['content']['field_protein'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_saturated_fat'][0]['#markup'] = round((floatVal($variables['content']['field_saturated_fat'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_sodium'][0]['#markup'] = round((floatVal($variables['content']['field_sodium'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_sugar'][0]['#markup'] = round((floatVal($variables['content']['field_sugar'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_vitamin_a'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_a'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_vitamin_b'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_b'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_vitamin_c'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_c'][0]['#markup']) / 100) * floatVal($serving), 2);
+            $variables['content']['field_vitamin_d'][0]['#markup'] = round((floatVal($variables['content']['field_vitamin_d'][0]['#markup']) / 100) * floatVal($serving), 2);
+        }
+    }
 }
 
 function btnutripal_page_attachments_alter(array &$page) {
-	
-	$node = \Drupal::routeMatch()->getParameter('node');
-	if (is_object($node) && $node != null && $node->getType() == 'aliments') {
 
-	    $fat= $node->field_total_fat->value;
-	    $protein = $node->field_protein->value;
-	    $carbohydrate = $node->field_carbohydrate->value;
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if (is_object($node) && $node != null && $node->getType() == 'aliments') {
 
-	    $page['#attached']['drupalSettings']['nutripal']['values']['fat'] =  $fat;
-	    $page['#attached']['drupalSettings']['nutripal']['values']['protein'] =  $protein;
-	    $page['#attached']['drupalSettings']['nutripal']['values']['carbohydrate'] =  $carbohydrate;
-	}
+        $fat = $node->field_total_fat->value;
+        $protein = $node->field_protein->value;
+        $carbohydrate = $node->field_carbohydrate->value;
+
+        $page['#attached']['drupalSettings']['nutripal']['values']['fat'] = $fat;
+        $page['#attached']['drupalSettings']['nutripal']['values']['protein'] = $protein;
+        $page['#attached']['drupalSettings']['nutripal']['values']['carbohydrate'] = $carbohydrate;
+    }
 }
-
 
 function btnutripal_theme_suggestions_form_alter(array &$suggestions, array $variables) {
     $suggestions[] = 'form__' . $variables['element']['#form_id'];
 }
+
+/* Attach data-twig-suggestion attrubute to form elements
+ * Twig temlate could be passed as attrubute via render array
+function btnutripal_theme_suggestions_form_alter(&$suggestions, array $variables) {
+    $element = $variables['element'];
+
+    if (isset($element['#attributes']['data-twig-suggestion'])) {
+        $suggestions[] = $element['#type'] . '__' . $element['#attributes']['data-twig-suggestion'];
+    }
+}
+function btnutripal_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    if ($form['#id'] == 'user-progression-form') {
+        $form['#attributes']['data-twig-suggestion'] = 'custom_' . str_replace('-', '_', $form['#id']);
+        $form['#attributes']['class'][] = 'custom-' . $form['#id'];
+    }
+}
+*/

@@ -14,13 +14,14 @@ class UserProgressionForm extends FormBase {
     public function buildForm(array $form, FormStateInterface $form_state) {
         $form['weight'] = array(
             '#type' => 'number',
-            '#title' => $this->t('Your weight'),
-            '#step' => 0.01,
+            '#title' => $this->t('Track your weight'),
+            '#step' => 0.5,
+            '#theme_wrappers' => [],
         );
         
         $form['add'] = array(
             '#type' => 'submit',
-            '#value' => $this->t('add'),
+            '#value' => $this->t('Add'),
         );
         return $form;
     }

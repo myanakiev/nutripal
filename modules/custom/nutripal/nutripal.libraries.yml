@@ -18,6 +18,16 @@ user-progression:
     - core/jquery
     - core/drupalSettings
 
+user-meals:
+  css:
+    theme:
+      css/user_meals.css: {}
+  js:
+    https://www.gstatic.com/charts/loader.js: { type: external, minified: true }
+    js/donut_meals.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
 
 # Third-party library (self hosted).
 jquery-labelauty:
@@ -45,3 +55,4 @@ vuejs:
     gpl-compatible: true
   js:
     https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js: {type: external, minified: true}
+

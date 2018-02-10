@@ -7,6 +7,7 @@
  * @DCG
  * This file is no longer required in Drupal 8.
  * @see https://www.drupal.org/node/2217931
+ */
  
  /**
  * Implements nutripal_page_attachements_alter().
@@ -16,6 +17,18 @@
 function nutripal_page_attachments_alter(array &$page) {
     $userRoute = \Drupal::routeMatch()->getCurrentRouteMatch()->getRouteName();
     $user = \Drupal::routeMatch()->getParameter('user');
+
+    if($userRoute == 'nutripal.user_meals'){
+        $tempstore = \Drupal::service('user.private_tempstore')->get('nutripal');
+        $fat = $tempstore->get('fat');
+        $carbohydrate = $tempstore->get('carbohydrate');
+        $protein = $tempstore->get('protein');
+
+        $page['#attached']['library'][] = 'nutripal/user-meals';
+        $page['#attached']['drupalSettings']['nutripal']['meals']['fat'] = $fat;
+        $page['#attached']['drupalSettings']['nutripal']['meals']['carbohydrate'] = $carbohydrate;
+        $page['#attached']['drupalSettings']['nutripal']['meals']['protein'] = $protein;
+    }
 
     if ($userRoute == 'nutripal.user_progression') {
         $page['#attached']['library'][] = 'nutripal/user-progression';
@@ -174,4 +187,38 @@ function nutripal_theme(){
       'render element' => 'form',
     ],
   ];
+}
+
+function nutripal_views_pre_render(\Drupal\views\ViewExecutable $view) {
+  if ($view->id()=='meals_view') {
+     $fat = 0;
+     $carbohydrate = 0;
+     $protein = 0;
+        foreach($view->result as $r => $result) {
+            $fat += $result->_relationship_entities['aid']->field_total_fat->getString()/100*$result->nutripal_user_meals_serving;
+            $carbohydrate += $result->_relationship_entities['aid']->field_carbohydrate->getString()/100*$result->nutripal_user_meals_serving;
+            $protein += $result->_relationship_entities['aid']->field_protein->getString()/100*$result->nutripal_user_meals_serving;
+        }
+    $page['#attached']['drupalSettings']['nutripal']['meals']['fat'] = $fat;
+    $page['#attached']['drupalSettings']['nutripal']['meals']['carbohydrate'] = $carbohydrate;
+    $page['#attached']['drupalSettings']['nutripal']['meals']['protein'] = $protein;
+  }
+}
+
+function nutripal_preprocess_views_view( &$variables) {
+  $view = $variables['view'];
+  if ($view->id()=='meals_view') {
+     $fat = 0;
+     $carbohydrate = 0;
+     $protein = 0;
+        foreach($view->result as $r => $result) {
+            $fat += $result->_relationship_entities['aid']->field_total_fat->getString()/100*$result->nutripal_user_meals_serving;
+            $carbohydrate += $result->_relationship_entities['aid']->field_carbohydrate->getString()/100*$result->nutripal_user_meals_serving;
+            $protein += $result->_relationship_entities['aid']->field_protein->getString()/100*$result->nutripal_user_meals_serving;
+        }
+    $tempstore = \Drupal::service('user.private_tempstore')->get('nutripal');
+    $tempstore->set('fat', $fat);
+    $tempstore->set('carbohydrate', $carbohydrate);
+    $tempstore->set('protein', $protein);
+  }
 }

@@ -17,12 +17,18 @@
  * @ingroup themeable
  */
 #}
-	
+	{% set total_kcal =0 %}
+  {% for row in rows %}
+   {% set total_kcal = total_kcal+(row.content['#row'].nutripal_user_meals_serving/100*row.content['#row']._relationship_entities.aid.field_calories.getString()) %}
+  {% endfor %}
+
+
 {% if title %}
-  <h3>{{ title }} ()</h3>
+  <h3>{{ title }} <span class="total-kcl"> ({{ total_kcal }}kcal)</span></h3>
 {% endif %}
 <!-- {{ kint(rows[0].content['#row']._relationship_entities.aid.field_calories.getString()) }} -->
-{{ kint(rows[0].content['#row'].nutripal_user_meals_serving) }}
+{% set serving = rows[0].content['#row'].nutripal_user_meals_serving %}
+{% set kcal = rows[0].content['#row']._relationship_entities.aid.field_calories.getString() %}
 {% for row in rows %}
   {%
     set row_classes = [

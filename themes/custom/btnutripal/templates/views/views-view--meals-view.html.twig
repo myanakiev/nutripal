@@ -64,9 +64,31 @@
   {% endif %}
 
   {% if rows %}
-    <div class="view-content">
-      {{ kint(rows) }}
-      {{ rows }}
+  {% set total_kcal =0 %}
+  {% set total_protein =0 %}
+  {% set total_fat =0 %}
+  {% set total_carbohydrate =0 %}
+    {% for row in rows %}
+      {% for row in row['#rows'] %}
+        {% set total_kcal = total_kcal+(row['#row'].nutripal_user_meals_serving/100*row['#row']._relationship_entities.aid.field_calories.getString()) %}
+        {% set total_protein = total_protein+(row['#row'].nutripal_user_meals_serving/100*row['#row']._relationship_entities.aid.field_protein.getString()) %}
+        {% set total_fat = total_fat+(row['#row'].nutripal_user_meals_serving/100*row['#row']._relationship_entities.aid.field_total_fat.getString()) %}
+        {% set total_carbohydrate = total_carbohydrate+(row['#row'].nutripal_user_meals_serving/100*row['#row']._relationship_entities.aid.field_carbohydrate.getString()) %}
+      {% endfor %}
+    {% endfor %}
+    <div class="view-content col-sm-6">
+      {{ rows[1] }}
+      {{ rows[4] }}
+      {{ rows[3] }}
+      {{ rows[0] }}
+      {{ rows[2] }}
+    </div>
+    <div class="total_day_kcal col-sm-6">
+      <h2>Total of {{ total_kcal|number_format(2,'.',',') }}g kcal</h2>
+      <h4>Total of {{ total_protein|number_format(2,'.',',') }}g protein</h4>
+      <h4>Total of {{ total_fat|number_format(2,'.',',') }}g fat</h4>
+      <h4>Total of {{ total_carbohydrate|number_format(2,'.',',') }}g carbohydrate</h4>
+      <div id="donut-meals"></div>
     </div>
   {% elseif empty %}
     <div class="view-empty">

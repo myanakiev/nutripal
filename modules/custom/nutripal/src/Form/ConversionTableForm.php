@@ -35,6 +35,7 @@ class ConversionTableForm extends FormBase {
 
         $form['#title'] = $this->getTitle();
         $form['#id'] = $this->getFormId();
+        $form['#attributes']['class'][] = 'well';
 
         $convert_opts = [];
         foreach ($conversion->getConversionIDs() as $opid) {
@@ -51,12 +52,14 @@ class ConversionTableForm extends FormBase {
                 'event' => 'change',
             ],
         ];
+        $form['conv-fr-u']['#attributes']['class'][] = 'input-sm';
         $form['conv-fr-v'] = [
             '#type' => 'number',
             '#title' => $this->t('Quantity'),
             '#default_value' => $vl_fr,
             '#required' => TRUE,
         ];
+        $form['conv-fr-v']['#attributes']['class'][] = 'input-sm';
 
         $convert_opts = [];
         foreach ($conversion->getConversionMapIDs($df_fr) as $opid) {
@@ -69,17 +72,20 @@ class ConversionTableForm extends FormBase {
             '#options' => $convert_opts,
             '#default_value' => $df_to,
         ];
+        $form['conv-to-u']['#attributes']['class'][] = 'input-sm';
         $form['conv-to-v'] = [
             '#type' => 'textfield',
             '#title' => $this->t('Quantity'),
             '#value' => $vl_to,
             '#disabled' => TRUE,
         ];
+        $form['conv-to-v']['#attributes']['class'][] = 'input-sm';
 
         $form['save'] = [
             '#type' => 'submit',
             '#value' => $this->t('Convert Units'),
         ];
+        $form['save']['#attributes']['class'][] = 'input-sm';
 
         return $form;
     }
@@ -102,6 +108,7 @@ class ConversionTableForm extends FormBase {
             '#options' => $convert_opts,
             '#theme_wrappers' => [],
         ];
+        $htm['#attributes']['class'][] = 'input-sm';
 
         $res = new AjaxResponse();
         $res->addCommand(new HtmlCommand('.form-item-conv-to-u', $htm));

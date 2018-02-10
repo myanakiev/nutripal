@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Theme override for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ */
+#}
+<h3>{{ element.weight['#title'] }}</h3>
+<form{{ attributes }}>
+    <div class="input-group">
+      {{ element.weight }}
+      <span class="input-group-btn">
+        {{ element.add }}
+      </span>
+    </div>
+    {{ element.form_id }}
+    {{ element.form_token }}
+    {{ element.form_build_id }}
+</form>
+
+{# children #}
+{# kint(element) #}
+{# kint(element.weight['#title']) #}

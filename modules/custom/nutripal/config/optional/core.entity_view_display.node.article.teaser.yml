@@ -45,7 +45,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    label: above
+    label: hidden
 hidden:
   comment: true
   langcode: true

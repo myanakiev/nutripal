@@ -28,7 +28,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -68,6 +68,7 @@ display:
           default_field_elements: true
           inline:
             uid_1: uid_1
+            serving_1: serving_1
             serving: serving
             title: title
             meal_name: meal_name
@@ -136,6 +137,63 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
+        serving_1:
+          id: serving_1
+          table: nutripal_user_meals
+          field: serving
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ serving_1 }}g'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ','
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         serving:
           id: serving
           table: nutripal_user_meals
@@ -144,7 +202,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: '{{ serving }}'
@@ -318,7 +376,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: 'for a total of {{ (field_calories__value/100) * serving  }}kcal'
+            text: 'for {{ (field_calories__value/100) * serving  }}kcal'
             make_link: false
             path: ''
             absolute: false
@@ -633,7 +691,7 @@ display:
           value:
             min: ''
             max: ''
-            value: ''
+            value: '2018-02-10'
             type: date
           group: 1
           exposed: true
@@ -644,12 +702,12 @@ display:
             use_operator: false
             operator: date_op
             identifier: date
-            required: false
+            required: true
             remember: false
             multiple: false
             remember_roles:
-              authenticated: authenticated
               anonymous: '0'
+              authenticated: '0'
               content_redactor: '0'
               user_support: '0'
               administrator: '0'
@@ -674,7 +732,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
+          order: ASC
           exposed: false
           expose:
             label: ''
@@ -730,7 +788,7 @@ display:
           not: false
           plugin_id: numeric
       display_extenders: {  }
-      use_ajax: true
+      use_ajax: false
     cache_metadata:
       max-age: -1
       contexts:

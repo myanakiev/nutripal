@@ -72,7 +72,6 @@ function nutripal_page_attachments_alter(array &$page) {
 
 function nutripal_views_data(){
     $data = array();
-    //kint('test');
     $data['nutripal_user_meals'] = array();
     $data['nutripal_user_meals']['table'] = array();
 
@@ -189,7 +188,7 @@ function nutripal_theme(){
   ];
 }
 
-function nutripal_views_pre_render(\Drupal\views\ViewExecutable $view) {
+/*function nutripal_views_pre_render(\Drupal\views\ViewExecutable $view) {
   if ($view->id()=='meals_view') {
      $fat = 0;
      $carbohydrate = 0;
@@ -203,7 +202,7 @@ function nutripal_views_pre_render(\Drupal\views\ViewExecutable $view) {
     $page['#attached']['drupalSettings']['nutripal']['meals']['carbohydrate'] = $carbohydrate;
     $page['#attached']['drupalSettings']['nutripal']['meals']['protein'] = $protein;
   }
-}
+}*/
 
 function nutripal_preprocess_views_view( &$variables) {
   $view = $variables['view'];

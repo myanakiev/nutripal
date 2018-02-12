@@ -36,5 +36,6 @@ nutripal.user_meals:
   defaults:
     _title: 'user meals'
     _controller: '\Drupal\nutripal\Controller\NutripalUserMealsController::content'
+    param: 'no parameter'
   requirements:
-    _access: 'TRUE'
+    _meals_access: 'TRUE'

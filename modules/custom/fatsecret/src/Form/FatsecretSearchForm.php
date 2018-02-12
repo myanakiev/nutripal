@@ -96,6 +96,18 @@ class FatsecretSearchForm extends FormBase{
 					'#resizable' => 'none',
 				];
 			}
+			/*$form['File'] = array(
+        '#type' => 'managed_file',
+        '#title' => t('Choose  File'),
+        '#upload_location' => 'public://',
+        '#default_value' => $entity->get('File')->value,
+        '#description' => t('upload file'),
+        '#states' => array(
+          'visible' => array(
+            ':input[name="File_type"]' => array('value' => t('Upload Your File')),
+          ),
+        ),
+      );*/
 			$form['create_content'] = [
 				'#type' => 'submit',
 				'#value' => $this->t('Add content'),

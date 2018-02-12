@@ -84,10 +84,10 @@
       {{ rows[2] }}
     </div>
     <div class="total_day_kcal col-sm-6">
-      <h2>Total of {{ total_kcal|number_format(2,'.',',') }}g kcal</h2>
-      <h4>Total of {{ total_protein|number_format(2,'.',',') }}g protein</h4>
-      <h4>Total of {{ total_fat|number_format(2,'.',',') }}g fat</h4>
-      <h4>Total of {{ total_carbohydrate|number_format(2,'.',',') }}g carbohydrate</h4>
+      <h2>Total of {{ total_kcal|number_format(2,'.','') }} kcal</h2>
+      <h4>{{ total_protein|number_format(2,'.',',') }}g of protein</h4>
+      <h4>{{ total_fat|number_format(2,'.',',') }}g of fat</h4>
+      <h4>{{ total_carbohydrate|number_format(2,'.',',') }}g of carbohydrate</h4>
       <div id="donut-meals"></div>
     </div>
   {% elseif empty %}

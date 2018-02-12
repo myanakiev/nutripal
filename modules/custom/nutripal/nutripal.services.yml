@@ -9,3 +9,8 @@ services:
     class: Drupal\nutripal\Access\ProgressionAccessCheck
     tags: 
       - { name: access_check, applies_to: _progression_access}
+
+  nutripal.meals_access:
+    class: Drupal\nutripal\Access\MealsAccessCheck
+    tags: 
+      - { name: access_check, applies_to: _meals_access}

@@ -188,22 +188,9 @@ function nutripal_theme(){
   ];
 }
 
-/*function nutripal_views_pre_render(\Drupal\views\ViewExecutable $view) {
-  if ($view->id()=='meals_view') {
-     $fat = 0;
-     $carbohydrate = 0;
-     $protein = 0;
-        foreach($view->result as $r => $result) {
-            $fat += $result->_relationship_entities['aid']->field_total_fat->getString()/100*$result->nutripal_user_meals_serving;
-            $carbohydrate += $result->_relationship_entities['aid']->field_carbohydrate->getString()/100*$result->nutripal_user_meals_serving;
-            $protein += $result->_relationship_entities['aid']->field_protein->getString()/100*$result->nutripal_user_meals_serving;
-        }
-    $page['#attached']['drupalSettings']['nutripal']['meals']['fat'] = $fat;
-    $page['#attached']['drupalSettings']['nutripal']['meals']['carbohydrate'] = $carbohydrate;
-    $page['#attached']['drupalSettings']['nutripal']['meals']['protein'] = $protein;
-  }
-}*/
-
+/**
+ * Implements hook_preprocess_views_view().
+ */
 function nutripal_preprocess_views_view( &$variables) {
   $view = $variables['view'];
   if ($view->id()=='meals_view') {
@@ -219,5 +206,17 @@ function nutripal_preprocess_views_view( &$variables) {
     $tempstore->set('fat', $fat);
     $tempstore->set('carbohydrate', $carbohydrate);
     $tempstore->set('protein', $protein);
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function nutripal_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $view_names = array('meals_view');
+  $view = $form_state->getStorage('view');
+  if ($form_id == 'views_exposed_form' && in_array($view['view']->id(), $view_names)) {
+    $user = \Drupal::routeMatch()->getParameter('user');
+    $form["#action"] = "/user/".$user->id()."/meals";
   }
 }

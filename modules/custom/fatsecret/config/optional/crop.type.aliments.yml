@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 label: aliments
 id: aliments
-description: ''
+description: 'crop for aliments'
 aspect_ratio: '3:2'
 soft_limit_width: 600
 soft_limit_height: 400

@@ -9636,7 +9636,7 @@ p:last-child,
   margin-bottom: 20px;
   margin-top: 130px;
   border: 1px solid transparent;
-  height: 70px;
+  height: 100px;
 }
 
 /* line 28, ../scss/style.scss */
@@ -9647,8 +9647,8 @@ p:last-child,
 /* line 32, ../scss/style.scss */
 .navbar-default .navbar-nav > li > a {
   color: white;
-  height: 70px;
-  line-height: 3;
+  height: 100px;
+  line-height: 9;
 }
 
 /* line 38, ../scss/style.scss */
@@ -9691,7 +9691,7 @@ form#user-login-form {
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 100px;
-  background-image: url(/themes/custom/btnutripal/images/thanksgiving-autumn-background-variété-de-…oranges-sur-le-fond-en-bois-foncé-avec-l-espace-libre-pour-le-79717551.jpg);
+  background-image: url(/themes/custom/btnutripal/images/background_login.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -9731,6 +9731,44 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
 .btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
   color: white;
   border-color: #8c8c8c;
+  background: -webkit-gradient(linear, left top, left bottom, from(#137714), to(#3CA640));
+  background: linear-gradient(#137714, #3CA640);
+}
+
+/* line 108, ../scss/style.scss */
+.menu--main li:first-child {
+  background-image: url(/themes/custom/btnutripal/images/home-icon.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: 15px;
+}
+
+/* line 116, ../scss/style.scss */
+.menu--main li:nth-child(2) {
+  background-image: url(/themes/custom/btnutripal/images/icone-panier-15e.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: 15px;
+}
+
+/* line 124, ../scss/style.scss */
+.menu--main li:last-child {
+  background-image: url(/themes/custom/btnutripal/images/clipboard-list-outline.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: 15px;
+}
+
+/* line 132, ../scss/style.scss */
+.user-login-form label.control-label.js-form-required.form-required {
+  color: white;
+}
+
+/* line 136, ../scss/style.scss */
+button#edit-submit {
   background: -webkit-gradient(linear, left top, left bottom, from(#137714), to(#3CA640));
   background: linear-gradient(#137714, #3CA640);
 }

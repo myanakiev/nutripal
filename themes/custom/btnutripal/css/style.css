@@ -9741,7 +9741,7 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
 }
 
 /* line 112, ../scss/style.scss */
-.menu--main li:first-child {
+.menu--main a[href="/"] {
   background-image: url(/themes/custom/btnutripal/images/home-icon.png);
   background-repeat: no-repeat;
   background-size: auto;
@@ -9750,7 +9750,7 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
 }
 
 /* line 120, ../scss/style.scss */
-.menu--main li:nth-child(2) {
+.menu--main a[data-drupal-link-system-path="food-index"] {
   background-image: url(/themes/custom/btnutripal/images/icone-panier-15e.png);
   background-repeat: no-repeat;
   background-size: auto;
@@ -9759,7 +9759,7 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
 }
 
 /* line 128, ../scss/style.scss */
-.menu--main li:last-child {
+.menu--main a[data-drupal-link-system-path="food-categories"] {
   background-image: url(/themes/custom/btnutripal/images/clipboard-list-outline.png);
   background-repeat: no-repeat;
   background-size: auto;
@@ -9768,23 +9768,32 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
 }
 
 /* line 136, ../scss/style.scss */
+.menu--main a[data-drupal-link-system-path="news"] {
+  background-image: url(/themes/custom/btnutripal/images/news-picto-300x230.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: 15px;
+}
+
+/* line 144, ../scss/style.scss */
 .user-login-form label.control-label.js-form-required.form-required {
   color: white;
 }
 
-/* line 140, ../scss/style.scss */
+/* line 148, ../scss/style.scss */
 button#edit-submit {
   background: -webkit-gradient(linear, left top, left bottom, from(#137714), to(#3CA640));
   background: linear-gradient(#137714, #3CA640);
 }
 
-/* line 144, ../scss/style.scss */
+/* line 152, ../scss/style.scss */
 .view-food-index-a-z img {
   width: 100%;
   margin-bottom: 20px;
 }
 
-/* line 149, ../scss/style.scss */
+/* line 157, ../scss/style.scss */
 .view-food-index-a-z p {
   font-size: 25px;
   font-weight: 700;

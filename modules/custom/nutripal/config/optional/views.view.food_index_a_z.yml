@@ -569,8 +569,8 @@ display:
           empty: true
           tokenize: false
           content:
-            value: '<h2>Table of foods and calories</h2>'
-            format: restricted_html
+            value: "<img src=\"/themes/custom/btnutripal/images/collection_aliments.jpg\"\n<h2>Table of foods and calories</h2>"
+            format: basic_html
           plugin_id: text
       footer: {  }
       empty: {  }
@@ -641,10 +641,26 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: 5
+        weight: -49
         context: '0'
         menu_name: main
       display_description: ''
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<img src=\"/themes/custom/btnutripal/images/collection_aliments.jpg\"/>\n<p>Fruits, vegetables, cereals, meat, fish, fat, dairy products ... NutriPal tells you everything you want to know about food.</p>\n<h2>Table of foods and calories</h2>"
+            format: full_html
+          plugin_id: text
+      defaults:
+        header: false
     cache_metadata:
       max-age: 0
       contexts:
@@ -683,7 +699,7 @@ display:
             title_enable: false
             title: All
           title_enable: true
-          title: '{{ field_food_category|striptags }} Index A-Z'
+          title: '{{ field_food_category|striptags }}'
           default_argument_type: fixed
           default_argument_options:
             argument: ''
@@ -712,6 +728,21 @@ display:
           plugin_id: numeric
       defaults:
         arguments: false
+        header: false
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<h2>Table of foods and calories</h2>'
+            format: basic_html
+          plugin_id: text
     cache_metadata:
       max-age: 0
       contexts:

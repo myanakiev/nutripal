@@ -9630,35 +9630,40 @@ p:last-child,
 }
 
 /* line 19, ../scss/style.scss */
+.navbar.container {
+  max-width: 100%;
+}
+
+/* line 23, ../scss/style.scss */
 .navbar {
   position: relative;
   min-height: 50px;
   margin-bottom: 20px;
-  margin-top: 130px;
+  margin-top: 150px;
   border: 1px solid transparent;
   height: 100px;
 }
 
-/* line 28, ../scss/style.scss */
+/* line 32, ../scss/style.scss */
 .navbar-header {
   width: 0;
 }
 
-/* line 32, ../scss/style.scss */
+/* line 36, ../scss/style.scss */
 .navbar-default .navbar-nav > li > a {
   color: white;
   height: 100px;
   line-height: 9;
 }
 
-/* line 38, ../scss/style.scss */
+/* line 42, ../scss/style.scss */
 .navbar.container {
   max-width: 1140px;
   background: -webkit-gradient(linear, left top, left bottom, from(#137714), to(#3CA640));
   background: linear-gradient(#137714, #3CA640);
 }
 
-/* line 43, ../scss/style.scss */
+/* line 47, ../scss/style.scss */
 .navbar .logo {
   margin-right: 0;
   padding-left: 0;
@@ -9666,7 +9671,7 @@ p:last-child,
   bottom: 154px;
 }
 
-/* line 50, ../scss/style.scss */
+/* line 54, ../scss/style.scss */
 div#header-img {
   position: absolute;
   right: 0;
@@ -9674,7 +9679,7 @@ div#header-img {
   z-index: -1;
 }
 
-/* line 57, ../scss/style.scss */
+/* line 61, ../scss/style.scss */
 .form_container .user-register-form {
   border-radius: 10px;
   padding: 100px 250px;
@@ -9684,7 +9689,7 @@ div#header-img {
   background-size: contain;
 }
 
-/* line 66, ../scss/style.scss */
+/* line 70, ../scss/style.scss */
 form#user-login-form {
   border: 1px green solid;
   border-bottom-right-radius: 10px;
@@ -9696,24 +9701,24 @@ form#user-login-form {
   background-size: cover;
 }
 
-/* line 77, ../scss/style.scss */
+/* line 81, ../scss/style.scss */
 .path-user ul.tabs--primary.nav.nav-tabs {
   border-bottom: none;
 }
 
-/* line 81, ../scss/style.scss */
+/* line 85, ../scss/style.scss */
 .main-container.container.js-quickedit-main-content {
   background: rgba(255, 255, 255, 0.7);
   padding-bottom: 100px;
 }
 
-/* line 86, ../scss/style.scss */
+/* line 90, ../scss/style.scss */
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* line 91, ../scss/style.scss */
+/* line 95, ../scss/style.scss */
 body {
   background-image: url(/themes/custom/btnutripal/images/53456_1_p1.jpg);
   background-repeat: no-repeat;
@@ -9721,13 +9726,13 @@ body {
   background-size: cover;
 }
 
-/* line 98, ../scss/style.scss */
+/* line 102, ../scss/style.scss */
 button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
   background: -webkit-gradient(linear, left top, left bottom, from(#137714), to(#3CA640));
   background: linear-gradient(#137714, #3CA640);
 }
 
-/* line 102, ../scss/style.scss */
+/* line 106, ../scss/style.scss */
 .btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
   color: white;
   border-color: #8c8c8c;
@@ -9735,7 +9740,7 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
   background: linear-gradient(#137714, #3CA640);
 }
 
-/* line 108, ../scss/style.scss */
+/* line 112, ../scss/style.scss */
 .menu--main li:first-child {
   background-image: url(/themes/custom/btnutripal/images/home-icon.png);
   background-repeat: no-repeat;
@@ -9744,7 +9749,7 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
   background-position-y: 15px;
 }
 
-/* line 116, ../scss/style.scss */
+/* line 120, ../scss/style.scss */
 .menu--main li:nth-child(2) {
   background-image: url(/themes/custom/btnutripal/images/icone-panier-15e.png);
   background-repeat: no-repeat;
@@ -9753,7 +9758,7 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
   background-position-y: 15px;
 }
 
-/* line 124, ../scss/style.scss */
+/* line 128, ../scss/style.scss */
 .menu--main li:last-child {
   background-image: url(/themes/custom/btnutripal/images/clipboard-list-outline.png);
   background-repeat: no-repeat;
@@ -9762,13 +9767,27 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
   background-position-y: 15px;
 }
 
-/* line 132, ../scss/style.scss */
+/* line 136, ../scss/style.scss */
 .user-login-form label.control-label.js-form-required.form-required {
   color: white;
 }
 
-/* line 136, ../scss/style.scss */
+/* line 140, ../scss/style.scss */
 button#edit-submit {
   background: -webkit-gradient(linear, left top, left bottom, from(#137714), to(#3CA640));
   background: linear-gradient(#137714, #3CA640);
+}
+
+/* line 144, ../scss/style.scss */
+.view-food-index-a-z img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* line 149, ../scss/style.scss */
+.view-food-index-a-z p {
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  margin: 50px 0;
 }

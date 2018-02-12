@@ -9777,23 +9777,50 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
 }
 
 /* line 144, ../scss/style.scss */
+.menu--account a[data-drupal-link-system-path="user"] {
+  background-image: url(/themes/custom/btnutripal/images/icon_menu.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: 15px;
+}
+
+/* line 152, ../scss/style.scss */
+.menu--account a[data-drupal-link-system-path="user/logout"] {
+  background-image: url(/themes/custom/btnutripal/images/icon_logout.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: 15px;
+}
+
+/* line 160, ../scss/style.scss */
+.menu--account a[data-drupal-link-system-path="user/login"] {
+  background-image: url(/themes/custom/btnutripal/images/icon_login.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: 15px;
+}
+
+/* line 168, ../scss/style.scss */
 .user-login-form label.control-label.js-form-required.form-required {
   color: white;
 }
 
-/* line 148, ../scss/style.scss */
+/* line 172, ../scss/style.scss */
 button#edit-submit {
   background: -webkit-gradient(linear, left top, left bottom, from(#137714), to(#3CA640));
   background: linear-gradient(#137714, #3CA640);
 }
 
-/* line 152, ../scss/style.scss */
+/* line 176, ../scss/style.scss */
 .view-food-index-a-z img {
   width: 100%;
   margin-bottom: 20px;
 }
 
-/* line 157, ../scss/style.scss */
+/* line 181, ../scss/style.scss */
 .view-food-index-a-z p {
   font-size: 25px;
   font-weight: 700;

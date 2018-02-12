@@ -9658,7 +9658,7 @@ p:last-child,
 
 /* line 42, ../scss/style.scss */
 .navbar.container {
-  max-width: 1140px;
+  max-width: 100%;
   background: -webkit-gradient(linear, left top, left bottom, from(#137714), to(#3CA640));
   background: linear-gradient(#137714, #3CA640);
 }
